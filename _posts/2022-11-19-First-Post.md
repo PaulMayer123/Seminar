@@ -22,7 +22,11 @@ date: 2022-11-19
     - by energy: procedure, explain Loss funtion
     - by example: procedure, explain Loss funtion
     - combine both
-  - statistics   
+  - statistics
+  - more details in appendix
+ 
+ # Examples
+  - 5 Different Examples; as many depending how much time is left
 
 # Discussion/Conclusion
  - limitations
