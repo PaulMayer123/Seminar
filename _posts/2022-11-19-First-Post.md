@@ -15,9 +15,6 @@ date: 2022-11-19
   - Coordinate Transform from configuration states x to latent space z
     - There different states are close and can be easily sampled via Gaussian
     - Invertible Neural Networks
-  <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="350" title="hover text">
-    </p>
 
 # ML part
   - Invertible Blocks
@@ -28,7 +25,10 @@ date: 2022-11-19
     - combine both
   - statistics
   - more details in appendix
-  ![Alt text](../../../blob/main/invertible2.png?raw=true "Block")
+  - 
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="350" title="hover text">
+    </p>
  
  # Examples
   - 5 Different Examples; as many depending how much time is left
