@@ -5,6 +5,7 @@ date: 2022-11-19
 
 # Motivation
   - Example
+  - Motivate manybody systems and sampling
   - Topic (What do we need/want?) statistically independent samples x from Boltzmann Distribution
   - old approach: simulations, many steps until new state, wanted states are often rare events
 
