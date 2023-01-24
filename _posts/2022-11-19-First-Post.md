@@ -28,7 +28,7 @@ date: 2022-11-19
     - combine both
   - statistics
   - more details in appendix
-  ![Alt text](../invertible2.png?raw=true "Block")
+  ![Alt text](../../../blob/main/invertible2.png?raw=true "Block")
  
  # Examples
   - 5 Different Examples; as many depending how much time is left
