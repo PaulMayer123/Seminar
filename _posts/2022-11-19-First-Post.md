@@ -15,6 +15,9 @@ date: 2022-11-19
   - Coordinate Transform from configuration states x to latent space z
     - There different states are close and can be easily sampled via Gaussian
     - Invertible Neural Networks
+  <p align="center">
+  <img src="../invertible2.png" width="350" title="hover text">
+    </p>
 
 # ML part
   - Invertible Blocks
