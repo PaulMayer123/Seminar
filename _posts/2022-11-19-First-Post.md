@@ -16,7 +16,7 @@ date: 2022-11-19
     - There different states are close and can be easily sampled via Gaussian
     - Invertible Neural Networks
   <p align="center">
-  <img src="[https://github.com/PaulMayer123/seminar/blob/main/invertible2.png](https://github.com/PaulMayer123/seminar/blob/main/invertible2.png?raw=true)" width="350" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="350" title="hover text">
     </p>
 
 # ML part
