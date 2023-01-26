@@ -29,6 +29,9 @@ date: 2022-11-19
   <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="350" title="hover text">
     </p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="350" title="hover text">
+    </p>
  
  # Examples
   - 5 Different Examples; as many depending how much time is left
