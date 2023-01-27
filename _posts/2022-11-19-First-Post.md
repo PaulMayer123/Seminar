@@ -50,7 +50,7 @@ We do this via a Deep Invertible Neural Network. As illustrated in the next imag
 </p>
 
 We start by drawing a sample from a gaussian distribution. Then we transform it through our Network and therefore get a
-sample in our configuration space. We thus generate a distribution $p_x$
+sample in our configuration space. We thus generate a distribution <math>p_x</math>
 
 
 
