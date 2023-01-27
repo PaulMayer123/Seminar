@@ -17,6 +17,7 @@ date: 2022-11-19
     - Invertible Neural Networks
 
 - - - -
+
 # Boltzmann Generators
 First let's take a look at what we can do. In our example we have all the positions and forces between our molecules. 
 We can therefore compute the energy of the system. With this energy we can calculate the boltzmann weight and know the 
@@ -50,7 +51,13 @@ We do this via a Deep Invertible Neural Network. As illustrated in the next imag
 </p>
 
 We start by drawing a sample from a gaussian distribution. Then we transform it through our Network and therefore get a
-sample in our configuration space. We thus generate a distribution <math>p_x</math>
+sample in our configuration space. We thus generate a distribution p<sub>x</sub>. This distribution is similar to the 
+boltzmann distribution, but not exact. That's why some reweighting is needed. Our Network consists out of smaller blocks.
+Which we now take a closer look at.
+
+- - - -
+
+## Invertible NN
 
 
 
@@ -64,7 +71,6 @@ sample in our configuration space. We thus generate a distribution <math>p_x</ma
     - combine both
   - statistics
   - more details in appendix
-  - 
   <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="350" title="hover text">
     </p>
@@ -78,7 +84,8 @@ sample in our configuration space. We thus generate a distribution <math>p_x</ma
  # Examples
   - 5 Different Examples; as many depending how much time is left
 - - - -
-# Conclusion
+
+# Conclusion #
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
 independent <b>one-shot</b> samples. And it is possible with dense systems with more than 1000 dimension, as we saw in 
 the last example. But the approach is not ergodic, which means it does not cover the whole configuration space. Although
