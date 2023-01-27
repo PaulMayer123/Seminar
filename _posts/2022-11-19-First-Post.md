@@ -16,6 +16,32 @@ date: 2022-11-19
     - There different states are close and can be easily sampled via Gaussian
     - Invertible Neural Networks
 
+
+# Boltzmann Generators
+First let's take a look at what we can do. In our example we have all the positions and forces between our molecules. 
+We can therefore compute the energy of the system. With this energy we can calculate the boltzmann weight and know the 
+probability of this state. <b>But</b> we only have no or very few samples. Hence, our problem is sampling.
+
+So how do these boltzmann generators work? The key idea is a coordinate transformation. From the configuration space X
+(as seen before: the positions and forces of the molecules) to a so-called latent space Z. There different states are 
+close to each other. And in such a way, that we can sample from there with a gaussian. 
+
+Since in our example this results in an 76 dimensional gaussian(which is difficult to visualize). Let's look at a simpler
+example that shows the principle better:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Transform-RealNVP.png" width="350" title="hover text">
+</p>
+
+The left part(blue) shows the configuration space of our data. After the transform we have the samples repacked in a gaussian 
+like shape (right blue part). The bends and stretches of the gray lines illustrate well the transformation. The key part 
+is that we this transformation is invertible. That means we can also transform in the other direction. So if we have
+samples in the latent space(red right part) we can transform them into our configuration space and get something similar
+to our data back. In our case we want to draw a sample in the latent space via a gaussian and then transform the sample
+to our configuration space to obtain a sample for our original problem. 
+
+
+
 # ML part
   - Invertible Blocks
   - Training
@@ -31,6 +57,9 @@ date: 2022-11-19
     </p>
 <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="350" title="hover text">
+    </p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="350" title="hover text">
     </p>
  
  # Examples
