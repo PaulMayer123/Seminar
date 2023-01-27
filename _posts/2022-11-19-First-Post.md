@@ -16,7 +16,7 @@ date: 2022-11-19
     - There different states are close and can be easily sampled via Gaussian
     - Invertible Neural Networks
 
-
+- - - -
 # Boltzmann Generators
 First let's take a look at what we can do. In our example we have all the positions and forces between our molecules. 
 We can therefore compute the energy of the system. With this energy we can calculate the boltzmann weight and know the 
@@ -30,7 +30,7 @@ Since in our example this results in an 76 dimensional gaussian(which is difficu
 example that shows the principle better:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Transform-RealNVP.png" width="350" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Transform-RealNVP.png" width="750" title="Transformation">
 </p>
 
 The left part(blue) shows the configuration space of our data. After the transform we have the samples repacked in a gaussian 
@@ -39,6 +39,19 @@ is that we this transformation is invertible. That means we can also transform i
 samples in the latent space(red right part) we can transform them into our configuration space and get something similar
 to our data back. In our case we want to draw a sample in the latent space via a gaussian and then transform the sample
 to our configuration space to obtain a sample for our original problem. 
+
+We do this via a Deep Invertible Neural Network. As illustrated in the next image:
+1. Sample from Gaussian
+2. Transform via Neural Network
+3. Reweight
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Boltzmann-with-Reweighting.png" width="350" title="hover text">
+</p>
+
+We start by drawing a sample from a gaussian distribution. Then we transform it through our Network and therefore get a
+sample in our configuration space. We thus generate a distribution $p_x$
+
 
 
 
@@ -64,7 +77,7 @@ to our configuration space to obtain a sample for our original problem.
  
  # Examples
   - 5 Different Examples; as many depending how much time is left
-
+- - - -
 # Conclusion
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
 independent <b>one-shot</b> samples. And it is possible with dense systems with more than 1000 dimension, as we saw in 
