@@ -41,7 +41,7 @@ We do this via a Deep Invertible Neural Network. As illustrated in the next imag
 3. Reweight
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Boltzmann-with-Reweighting.png" width="350" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Boltzmann-with-Reweight.png" width="350" title="hover text">
 </p>
 
 We start by drawing a sample from a gaussian distribution. Then we transform it through our Network and therefore get a
@@ -94,7 +94,16 @@ on the most meta-stable state.
 </p>
 This mode is as we all know we start with valid configuration. We use our transformation in the other direction.
 Training by example is especially good in the early stages, but requires configurations.
-So the best way is to combine both methods together
+So the best way is to combine both methods together.
+
+
+## Reweigthing
+
+Because of our network we never have exactly the boltzmann distribution. Therefore, we need a bit of reweighting. The third
+step of the boltzmann generators.
+The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. The first part is the boltzmann distribution and the second is
+our generated distribution. To compute our statistics we use these new weights. And the closer the distribution is the
+better more accurate the statistics.
 
 - - - - 
 <br></br>
