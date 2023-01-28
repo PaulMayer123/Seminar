@@ -78,7 +78,7 @@ And each of it requires the other direction. The first mode is called training-b
 2. Transform through NN and generate a distribution p<sub>x</sub>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="350" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="400" title="hover text">
 </p>
 In the beginning p<sub>x</sub> will be very different from the boltzmann distribution. We want to minimize this 
 difference. We therefore use the Kullback-Leibler-Divergence which is derived from the difference between
@@ -91,7 +91,7 @@ on the most meta-stable state.
 2. Transform through NN in other direction
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="350" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="400" title="hover text">
 </p>
 This mode is as we all know we start with valid configuration. We use our transformation in the other direction.
 Training by example is especially good in the early stages, but requires configurations.
