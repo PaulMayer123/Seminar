@@ -9,12 +9,6 @@ date: 2022-11-19
   - Topic (What do we need/want?) statistically independent samples x from Boltzmann Distribution
   - old approach: simulations, many steps until new state, wanted states are often rare events
 
-# New ML Approach: Boltzmann generators
-  - "one shot" samples
-  - We can compute Boltzmann weights of a given x but we do not have these samples x
-  - Coordinate Transform from configuration states x to latent space z
-    - There different states are close and can be easily sampled via Gaussian
-    - Invertible Neural Networks
 
 - - - -
 
@@ -59,30 +53,54 @@ Which we now take a closer look at.
 
 ## Invertible NN
 
+For the invertible blocks, the boltzmann generators use RealNVP(link) transformations. It uses only trivial invertible
+operations, like addition and multiplication. In the image, the blue part is for the direction from the latent space to the 
+configuration space and the red part for the other direction. First the input is split into 2 channels (x<sub>1</sub>, x<sub>2</sub>).
+One channel remains unchanged and is only used as input to change the second input. S and T are two
+<b>non</b>-invertible networks. We use the first channel as input of these networks and then multiply or add it to the 
+second channel. Even though the two Networks are not invertible, we know their input and therefore can recompute it and 
+then divide or subtract it from the second channel to get our original inputs back. Note that we use the same network 
+both directions. We can stack those blocks to obtain a deep neural network. In order to avoid that we only change one
+half of the input we swap the channel that gets modified every other block.
+<br></br>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="hover text">
+</p>
 
+## Training
 
+Why do we need invertible Blocks? There are two ways to train our network, so that we really get good, realistic samples.
+And each of it requires the other direction. The first mode is called training-by-energy:
 
-# ML part
-  - Invertible Blocks
-  - Training
-    - 2 modes
-    - by energy: procedure, explain Loss funtion
-    - by example: procedure, explain Loss funtion
-    - combine both
-  - statistics
-  - more details in appendix
-  <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="350" title="hover text">
-    </p>
+### Training by energy
+1. Sample from gaussian
+2. Transform through NN and generate a distribution p<sub>x</sub>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="350" title="hover text">
-    </p>
+</p>
+In the beginning p<sub>x</sub> will be very different from the boltzmann distribution. We want to minimize this 
+difference. We therefore use the Kullback-Leibler-Divergence which is derived from the difference between
+two distributions. So we do not need samples from the configuration space for this training mode. But it tends to focus
+on the most meta-stable state. 
+
+### Training by example
+
+1. Start with a valid configuration (from simulation or experiments)
+2. Transform through NN in other direction
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="350" title="hover text">
-    </p>
- 
- # Examples
-  - 5 Different Examples; as many depending how much time is left
+</p>
+This mode is as we all know we start with valid configuration. We use our transformation in the other direction.
+Training by example is especially good in the early stages, but requires configurations.
+So the best way is to combine both methods together
+
+- - - - 
+
+# Examples
+  - 5 Different Examples; as many depending on how much time is left
+
 - - - -
 
 # Conclusion #
@@ -99,3 +117,22 @@ we can use this approach.
 
 # References
 
+
+# New ML Approach: Boltzmann generators
+  - "one shot" samples
+  - We can compute Boltzmann weights of a given x but we do not have these samples x
+  - Coordinate Transform from configuration states x to latent space z
+    - There different states are close and can be easily sampled via Gaussian
+    - Invertible Neural Networks
+
+
+
+
+  - Invertible Blocks
+  - Training
+    - 2 modes
+    - by energy: procedure, explain Loss funtion
+    - by example: procedure, explain Loss funtion
+    - combine both
+  - statistics
+  - more details in appendix
