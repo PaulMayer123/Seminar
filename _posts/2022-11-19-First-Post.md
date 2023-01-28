@@ -11,7 +11,7 @@ date: 2022-11-19
 
 
 - - - -
-
+<br></br>
 # Boltzmann Generators
 First let's take a look at what we can do. In our example we have all the positions and forces between our molecules. 
 We can therefore compute the energy of the system. With this energy we can calculate the boltzmann weight and know the 
@@ -50,7 +50,7 @@ boltzmann distribution, but not exact. That's why some reweighting is needed. Ou
 Which we now take a closer look at.
 
 - - - -
-
+<br></br>
 ## Invertible NN
 
 For the invertible blocks, the boltzmann generators use RealNVP(link) transformations. It uses only trivial invertible
@@ -97,12 +97,12 @@ Training by example is especially good in the early stages, but requires configu
 So the best way is to combine both methods together
 
 - - - - 
-
+<br></br>
 # Examples
   - 5 Different Examples; as many depending on how much time is left
 
 - - - -
-
+<br></br>
 # Conclusion #
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
 independent <b>one-shot</b> samples. And it is possible with dense systems with more than 1000 dimension, as we saw in 
