@@ -1,18 +1,18 @@
 ---
-title: "First-Post"
+title: "Boltzmann-Generators"
 date: 2022-11-19
 ---
 
 # Motivation
   - Example
   - Motivate manybody systems and sampling
-  - Topic (What do we need/want?) statistically independent samples x from Boltzmann Distribution
+  - (What do we need/want?) statistically independent samples x from Boltzmann Distribution
   - old approach: simulations, many steps until new state, wanted states are often rare events
-
 
 - - - -
 
 # Boltzmann Generators
+- "one shot" samples
 First let's take a look at what we can do. In our example we have all the positions and forces between our molecules. 
 We can therefore compute the energy of the system. With this energy we can calculate the boltzmann weight and know the 
 probability of this state. <b>But</b> we only have no or very few samples. Hence, our problem is sampling.
@@ -109,10 +109,10 @@ better more accurate the statistics.
 - - - - 
 
 # Examples
-  - 5 Different Examples; as many depending on how much time is left
+  - Maybe some Examples or focus on one with Results
 
 - - - -
-<br>
+
 # Conclusion #
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
 independent <b>one-shot</b> samples. And it is possible with dense systems with more than 1000 dimension, as we saw in 
@@ -127,22 +127,3 @@ we can use this approach.
 
 # References
 
-
-# New ML Approach: Boltzmann generators
-  - "one shot" samples
-  - We can compute Boltzmann weights of a given x but we do not have these samples x
-  - Coordinate Transform from configuration states x to latent space z
-    - There different states are close and can be easily sampled via Gaussian
-    - Invertible Neural Networks
-
-
-
-
-  - Invertible Blocks
-  - Training
-    - 2 modes
-    - by energy: procedure, explain Loss funtion
-    - by example: procedure, explain Loss funtion
-    - combine both
-  - statistics
-  - more details in appendix
