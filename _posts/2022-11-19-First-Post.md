@@ -11,6 +11,41 @@ date: 2022-11-19
 
 - - - -
 
+What is the probability that a protein will be folded at a given temperature? This and many more questions like this are
+part of statistical mechanics, where we try to describe the average behaviour of many copies of the same system. But how
+can we compute such probabilities? Simply look at all possible configurations of all folded and unfolded proteins? Sadly,
+the enumeration of all these states is infeasible, and we therefore have to sample from their
+equilibrium distribution to compute statistics about the system. 
+
+In this blog I present the new approach to generate "one-shot" samples from the paper "Boltzmann generators: Sampling 
+equilibrium states of many-body systems with deep learning". I will focus mainly on the machine learning tools they used
+to achieve this.
+
+# Many-Body Problems
+Many-body problems are a category of physical problems. They are about microscopic systems made of many interacting 
+particles <!-- Quelle wiki -->. The underlying physical laws can be simple, but the resulting system as a whole is 
+extremely complex. In condensed matter physics, the macroscopic and microscopic physical properties of matter are 
+studied, in particular the solid and liquid phases formed by electromagnetic forces between atoms. The system can be
+described via the equations of motion. The equations thus takes into account the mass, position, energy and forces of the 
+particles. The equations of motion don't have just one solution, therefore we are talking about probabilities of certain 
+states. Often the most interesting states are rare-events, like the transition of a protein from folded to unfolded or vise
+versa. One example that we take a closer look at throughout this blog, is an open or closed dimer. This condensed matter
+system consists of many molecules. The focus lies on the two colored in the picture <!-- ref -->. These two can be in to
+main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event. Therefore,
+one possible interesting statistic is the probability that the primer is closed or open. 
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/dense-closed.png" width="350" title="hover text">
+    <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/dense-open.png" width="350" title="hover text">
+
+</p>
+
+# Old Approach
+
+# Boltzmann Distribution
+- nochmal genauer erklären
+- These states are separated by a high energy barrier
+
 # Boltzmann Generators
 - "one shot" samples
 First let's take a look at what we can do. In our example we have all the positions and forces between our molecules. 
@@ -110,6 +145,7 @@ better more accurate the statistics.
 
 # Examples
   - Maybe some Examples or focus on one with Results
+  - How can we use this transformation elsewhere
 
 - - - -
 
