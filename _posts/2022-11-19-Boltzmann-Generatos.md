@@ -35,8 +35,8 @@ main states: closed (left) or open (right). The transition from one to the other
 one possible interesting statistic is the probability that the primer is closed or open. 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/dense-closed.png" width="350" title="hover text">
-    <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/dense-open.png" width="350" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="350" title="hover text">
+    <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="350" title="hover text">
 
 </p>
 
