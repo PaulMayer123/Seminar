@@ -48,6 +48,7 @@ one possible interesting statistic is the probability that the primer is closed 
 
 # Boltzmann Generators
 - "one shot" samples
+
 First let's take a look at what we can do. In our example we have all the positions and forces between our molecules. 
 We can therefore compute the energy of the system. With this energy we can calculate the boltzmann weight and know the 
 probability of this state. <b>But</b> we only have no or very few samples. Hence, our problem is sampling.
