@@ -3,19 +3,12 @@ title: "Boltzmann-Generators"
 date: 2022-11-19
 ---
 
-# Motivation
-  - Example
-  - Motivate manybody systems and sampling
-  - (What do we need/want?) statistically independent samples x from Boltzmann Distribution
-  - old approach: simulations, many steps until new state, wanted states are often rare events
-
-- - - -
-
 What is the probability that a protein will be folded at a given temperature? This and many more questions like this are
 part of statistical mechanics, where we try to describe the average behaviour of many copies of the same system. But how
 can we compute such probabilities? Simply look at all possible configurations of all folded and unfolded proteins? Sadly,
 the enumeration of all these states is infeasible, and we therefore have to sample from their
 equilibrium distribution to compute statistics about the system. 
+<!--(What do we need/want?) statistically independent samples x from Boltzmann Distribution -->
 
 In this blog I present the new approach to generate "one-shot" samples from the paper "Boltzmann generators: Sampling 
 equilibrium states of many-body systems with deep learning". I will focus mainly on the machine learning tools they used
@@ -35,23 +28,32 @@ main states: closed (left) or open (right). The transition from one to the other
 one possible interesting statistic is the probability that the primer is closed or open. 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="350" title="hover text">
-    <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="350" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
+    <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="252.25" title="hover text">
 
 </p>
 
-# Old Approach
+# Boltzmann Distribution <!-- Nochmal motivieren warum wir hiervon samplen wollen(was beschreibt sie,...) -->
+The Boltzmann Distribution often appears in such problems. It takes into account the energy and temperature of the system.
+The less energy of a state, the higher its probability is. In our example, the system has the lowest energy, when the 
+primer is closed or open. To transition from one to the other a high energy barrier must be overcome and therefore these
+events are quite rare. If we have a given configuration of our system, we can compute the energy and thus can compute the
+corresponding Boltzmann weight. <!-- Hier Beispiel U(x) angeben?? oder alles zusammen später -->
 
-# Boltzmann Distribution
-- nochmal genauer erklären
-- These states are separated by a high energy barrier
+# Old Approach
+The classical approach is to simulate the system. A numerical, iterative solution to the equations of motion is computed
+with small steps. These steps can be in the order of femto seconds! Therefore, we need a long time to transition from one
+meta-stable state to the other. For the transition from the open to closed dimer 10<sup>12</sup> simulation steps are 
+needed. Furthermore, the obtained samples are often correlated to each other.
 
 # Boltzmann Generators
-- "one shot" samples
+How can we use machine learning to improve the sampling? As in the name of the paper Boltzmann generators are used to 
+obtain independent, "one shot" samples. So we no longer need small simulation steps.
 
-First let's take a look at what we can do. In our example we have all the positions and forces between our molecules. 
-We can therefore compute the energy of the system. With this energy we can calculate the boltzmann weight and know the 
-probability of this state. <b>But</b> we only have no or very few samples. Hence, our problem is sampling.
+First let's take a look at what we can do. In our example we have all the positions and forces, for a given sample,
+between our molecules. We can therefore compute the energy of the system. With this energy we can calculate the boltzmann
+weight and know the probability of this state. <b>But</b> we only have no or very few samples. Hence, our problem is 
+sampling. <!-- HIer input? -->
 
 So how do these boltzmann generators work? The key idea is a coordinate transformation. From the configuration space X
 (as seen before: the positions and forces of the molecules) to a so-called latent space Z. There different states are 
@@ -136,8 +138,9 @@ So the best way is to combine both methods together.
 
 ## Reweigthing
 
-Because of our network we never have exactly the boltzmann distribution. Therefore, we need a bit of reweighting. The third
-step of the boltzmann generators.
+Because of our network, we never have exactly the boltzmann distribution. Therefore, we need a bit of reweighting. The third
+step of the boltzmann generators. Statistical mechanics offer many tools to generate the wanted distribution when p<sub>x
+</sub> is sufficiently similar.
 The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. The first part is the boltzmann distribution and the second is
 our generated distribution. To compute our statistics we use these new weights. And the closer the distribution is the
 better more accurate the statistics.
@@ -147,6 +150,9 @@ better more accurate the statistics.
 # Examples
   - Maybe some Examples or focus on one with Results
   - How can we use this transformation elsewhere
+
+## Transition Paths
+## Exploration
 
 - - - -
 
