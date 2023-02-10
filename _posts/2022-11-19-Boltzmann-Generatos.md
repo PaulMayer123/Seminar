@@ -92,67 +92,20 @@ Which we now take a closer look at.
 - - - -
 
 ## Input
-So how does a configuration and therefore input to our network look like? For our dimer example, we have 36 solvent particles
-and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
-<center>
-    <math>
-        <mrow>    
-            <mi><b>x</b></mi>
-            <mo>=</mo> 
-            <mo>[</mo>
-                <msub>
-                    <mi>x</mi>
-                    <mrow>
-                        <mn>1</mn>
-                        <mi>x</mi>
-                    </mrow>
-                </msub>
-                <mo>, </mo>
-                <msub>
-                    <mi>x</mi>
-                    <mrow>
-                        <mn>1</mn>
-                        <mi>y</mi>
-                    </mrow>
-                </msub>
-                <mo>, </mo>
-                <msub>
-                    <mi>x</mi>
-                    <mrow>
-                        <mn>2</mn>
-                        <mi>x</mi>
-                    </mrow>
-                </msub>
-                <mo>, </mo>
-                <msub>
-                    <mi>x</mi>
-                    <mrow>
-                        <mn>2</mn>
-                        <mi>y</mi>
-                    </mrow>
-                </msub>
-                <mo>, </mo>
-                <mi>&hellip;</mi>
-                <mo>, </mo>
-                <msub>
-                    <mi>x</mi>
-                    <mrow>
-                        <mn>38</mn>
-                        <mi>x</mi>
-                    </mrow>
-                </msub>
-                <mo>, </mo>
-                <msub>
-                    <mi>x</mi>
-                    <mrow>
-                        <mn>38</mn>
-                        <mi>y</mi>
-                    </mrow>
-                </msub>
-            <mo>]</mo>
-        </mrow>
-    </math>
-</center>
+So how does a configuration and therefore input to our network look like? For our dimer example, we have n <sub>s</sub>
+= 36 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="450" title="hover text">
+</p>
+With this input vector we can compute the energy of the system as follows:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="450" title="hover text">
+</p>
+
+The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
+The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
+on the edges of our system (x and y direction). And the last row describes the interaction therefore repulsion of the other
+particles
 
 ## Invertible NN
 
@@ -220,8 +173,6 @@ better more accurate the statistics.
 
 ## Transition Paths
 ## Exploration
-
-- - - -
 
 # Conclusion #
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
