@@ -46,6 +46,8 @@ with small steps. These steps can be in the order of femto seconds! Therefore, w
 meta-stable state to the other. For the transition from the open to closed dimer 10<sup>12</sup> simulation steps are 
 needed. Furthermore, the obtained samples are often correlated to each other.
 
+- - - -
+
 # Boltzmann Generators
 How can we use machine learning to improve the sampling? As in the name of the paper Boltzmann generators are used to 
 obtain independent, "one shot" samples. So we no longer need small simulation steps.
@@ -92,7 +94,28 @@ Which we now take a closer look at.
 ## Input
 So how does a configuration and therefore input to our network look like? For our dimer example, we have 36 solvent particles
 and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
-&&x=[x&&
+<math>
+    <mrow>    
+        <mi>x</mi>
+        <mo>=</mo> 
+        <mfenced open='[' close="]" separators=",">
+            <msub>
+                <mi>x</mi>
+                <mrow>
+                    <mn>1</mn>
+                    <mi>x</mi>
+                </mrow>
+            </msub>
+            <mi>x<msub>1y</msub></mi>
+            <mi>x<msub>2x</msub></mi>
+            <mi>x<msub>2y</msub></mi>
+            <mi>&hellip;</mi>
+            <mi>x<msub>38x</msub></mi>
+            <mi>x<msub>38y</msub></mi>
+        </mfenced>
+    </mrow>    
+[ x_1
+</math>
 
 
 ## Invertible NN
@@ -106,7 +129,7 @@ second channel. Even though the two Networks are not invertible, we know their i
 then divide or subtract it from the second channel to get our original inputs back. Note that we use the same network 
 both directions. We can stack those blocks to obtain a deep neural network. In order to avoid that we only change one
 half of the input we swap the channel that gets modified every other block.
-<br></br>
+<br>
 <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="hover text">
 </p>
@@ -172,6 +195,8 @@ case. We also end up with the trade of that we do not have to do the small simul
 the more difficult it is to reweight and the result are not that accurate anymore. The Boltzmann generators can be
 used in many topics and there are some papers that build up on it. So whenever we want to sample from a known distribution
 we can use this approach.
+
+- - - -
 
 # References
 
