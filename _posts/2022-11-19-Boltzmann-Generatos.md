@@ -143,8 +143,10 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
                 </mrow>
             </msub>
         </mfenced>
-    </mrow>    
-[ x_1
+    </mrow>
+    <mfenced>
+        <mi> i </mi>
+    </mfenced>
 </math>
 
 
