@@ -34,7 +34,7 @@ a possible interesting statistic is the probability that the primer is closed or
 </p>
 
 # Boltzmann Distribution <!-- Nochmal motivieren warum wir hiervon samplen wollen(was beschreibt sie,...) -->
-The Boltzmann Distribution often appears in such problems. It takes into account the energy and temperature of the system.
+The boltzmann distribution often appears in such problems. It takes into account the energy and temperature of the system.
 The less energy of a state, the higher its probability is. In our example, the system has the lowest energy, when the 
 primer is closed or open. To transition from one to the other a high energy barrier must be overcome and therefore these
 events are quite rare. If we have a given configuration of our system, we can compute the energy and thus can compute the
@@ -75,7 +75,7 @@ samples in the latent space(red right part) we can transform them into our confi
 to our data back. In our case we want to draw a sample in the latent space via a gaussian and then transform the sample
 to our configuration space to obtain a sample for our original problem. 
 
-We do this via a Deep Invertible Neural Network. As illustrated in the next image:
+We do this via a deep invertible neural network. As illustrated in the next image:
 1. Sample from Gaussian
 2. Transform via Neural Network
 3. Reweight
@@ -94,11 +94,11 @@ boltzmann distribution, but not exact. That's why some reweighting is needed. Ou
 So how does a configuration and therefore input to our network look like? For our dimer example, we have n <sub>s</sub>
 = 36 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="450" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="350" title="hover text">
 </p>
 With this input vector we can compute the energy of the system as follows:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="450" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="600" title="hover text">
 </p>
 
 The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
@@ -173,7 +173,7 @@ gaussian. One possible statistic is the free energy difference. In the following
 obtained by classical sampling methods. The green points are samples generated with the boltzmann generators.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-FreeEnergyDiff.png" width="400" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-FreeEnergyDiff.png" width="350" title="hover text">
 </p>
 
 For one transition from one meta-stable state to the other and back, the simulation needs 10<sup>12</sup> steps. To get
@@ -188,7 +188,7 @@ latent space. If we transform this path back to the configuration space, we obta
 from one to the other. One of than can be seen in the next image.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transitions-paths.png" width="400" title="hover text">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transition-paths.png" width="400" title="hover text">
 </p>
 
 <!-- exploration -->
