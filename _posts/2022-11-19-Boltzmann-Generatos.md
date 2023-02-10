@@ -23,9 +23,9 @@ described via the equations of motion. The equations thus takes into account the
 particles. The equations of motion don't have just one solution, therefore we are talking about probabilities of certain 
 states. Often the most interesting states are rare-events, like the transition of a protein from folded to unfolded or vise
 versa. One example that we take a closer look at throughout this blog, is an open or closed dimer. This condensed matter
-system consists of many molecules. The focus lies on the two colored in the picture <!-- ref -->. These two can be in to
-main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event. Therefore,
-one possible interesting statistic is the probability that the primer is closed or open. 
+system consists of 36 molecules. The focus lies on the two colored in the picture <!-- ref -->. These two can be in to
+main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event. Additionally,
+a possible interesting statistic is the probability that the primer is closed or open. 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
@@ -87,7 +87,6 @@ We do this via a Deep Invertible Neural Network. As illustrated in the next imag
 We start by drawing a sample from a gaussian distribution. Then we transform it through our Network and therefore get a
 sample in our configuration space. We thus generate a distribution p<sub>x</sub>. This distribution is similar to the 
 boltzmann distribution, but not exact. That's why some reweighting is needed. Our Network consists out of smaller blocks.
-Which we now take a closer look at.
 
 - - - -
 
@@ -108,16 +107,17 @@ on the edges of our system (x and y direction). And the last row describes the i
 particles
 
 ## Invertible NN
-
-For the invertible blocks, the boltzmann generators use RealNVP(link) transformations. It uses only trivial invertible
+Let's look at the smaller blocks that make up our network. These blocks are invertible and the boltzmann generators use RealNVP transformations. It uses only trivial invertible
 operations, like addition and multiplication. In the image, the blue part is for the direction from the latent space to the 
 configuration space and the red part for the other direction. First the input is split into 2 channels (x<sub>1</sub>, x<sub>2</sub>).
 One channel remains unchanged and is only used as input to change the second input. S and T are two
 <b>non</b>-invertible networks. We use the first channel as input of these networks and then multiply or add it to the 
 second channel. Even though the two Networks are not invertible, we know their input and therefore can recompute it and 
 then divide or subtract it from the second channel to get our original inputs back. Note that we use the same network 
-both directions. We can stack those blocks to obtain a deep neural network. In order to avoid that we only change one
-half of the input we swap the channel that gets modified every other block.
+both directions. In order to avoid that we only change one half of the input we swap the channel that gets modified every other layer.
+A block consist of 2 layers one modification of each channel. We can stack those blocks to obtain a deep neural network.
+For our running example 8 blocks (with 2 layers each) were used. Furthermore, the networks S and T consist of 3 hidden
+layers with 200 neurons.
 <br>
 <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="hover text">
@@ -150,7 +150,9 @@ on the most meta-stable state.
 </p>
 This mode is as we all know we start with valid configuration. We use our transformation in the other direction.
 Training by example is especially good in the early stages, but requires configurations.
-So the best way is to combine both methods together.
+<b>So the best way is to combine both methods together.</b>
+For the dimer example, we start with only 'training by example' for the first 20 epochs. After that the 'training by energy'
+is also used and the whole network is trained for 2000 epochs.
 
 
 ## Reweigthing
@@ -160,27 +162,44 @@ step of the boltzmann generators. Statistical mechanics offer many tools to gene
 </sub> is sufficiently similar.
 The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. The first part is the boltzmann distribution and the second is
 our generated distribution. To compute our statistics we use these new weights. And the closer the distribution is the
-better more accurate the statistics.
+better and more accurate the statistics.
 
 - - - - 
 
 ## Results
-    For Running example
+Let's look at the result for the system with the dimer. We recall that the dimer can be closed or open. And these states
+are separated by a high energy barrier to transition from one to the other. In the latent space, we obtain a 76-dimensional
+gaussian. One possible statistic is the free energy difference. In the following image we can see the black line that was
+obtained by classical sampling methods. The green points are samples generated with the boltzmann generators.
 
-# Examples
-  - Maybe some Examples or focus on one with Results
-  - How can we use this transformation elsewhere
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-FreeEnergyDiff.png" width="400" title="hover text">
+</p>
+
+For one transition from one meta-stable state to the other and back, the simulation needs 10<sup>12</sup> steps. To get
+the same precision as the boltzmann generators we need 100 of those transitions. On the other hand the boltzmann generators
+need 2*10<sup>7</sup> energy evaluation in the training process. This is a significant speed-up by 7 orders of magnitude!
+In addition, the samples are independent and "one-shot". That means we can draw as many samples as we want without significant
+computations.
 
 ## Transition Paths
-## Exploration
+What else can we do with the transformation? If we take our 2 meta-stable states, we can do a linear interpolation in the
+latent space. If we transform this path back to the configuration space, we obtain possible and realistic transition paths
+from one to the other. One of than can be seen in the next image.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transitions-paths.png" width="400" title="hover text">
+</p>
+
+<!-- exploration -->
 
 # Conclusion #
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
-independent <b>one-shot</b> samples. And it is possible with dense systems with more than 1000 dimension, as we saw in 
-the last example. But the approach is not ergodic, which means it does not cover the whole configuration space. Although
-in the paper some ideas are broad up to combine the Boltzmann generators with classical sampling methods to fix this.
-Moreover, the Networks are always very system specific, and therefore we have to train on every configuration space from
-scratch. Ideally we could pretrain the Boltzmann Generators so that we only have to fine-tune it to every special use
+independent <b>one-shot</b> samples. And in the paper they show an example with a dense systems with more than 1000 dimension.
+But the approach is not ergodic, which means it does not cover the whole configuration space. Although
+in the paper some ideas are broad up to combine the boltzmann generators with classical sampling methods to fix this.
+Moreover, the networks are always very system specific, and therefore we have to train on every configuration space from
+scratch. Ideally we could pretrain the boltzmann generators so that we only have to fine-tune it to every special use
 case. We also end up with the trade of that we do not have to do the small simulation steps, but the complexer the system
 the more difficult it is to reweight and the result are not that accurate anymore. The Boltzmann generators can be
 used in many topics and there are some papers that build up on it. So whenever we want to sample from a known distribution
@@ -189,4 +208,9 @@ we can use this approach.
 - - - -
 
 # References
+
+- F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)
+- Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)
+- Frank Noe. (2020, 26. September). MLDS 2020 - 3 Boltzmann Generators. YouTube. https://youtu.be/WuXJRswYIaA
+- ICTP Condensed Matter and Statistical Physics. (2021, 16. December). Enhanced sampling in Molecular Dynamics: Why is it necessary?. Youtube. https://www.youtube.com/watch?v=2S3xYRLy2cI
 
