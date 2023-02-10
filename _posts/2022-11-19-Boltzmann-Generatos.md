@@ -94,64 +94,65 @@ Which we now take a closer look at.
 ## Input
 So how does a configuration and therefore input to our network look like? For our dimer example, we have 36 solvent particles
 and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
-<math>
-    <mrow>    
-        <mi><b>x</b></mi>
-        <mo>=</mo> 
-        <mo>[</mo>
-            <msub>
-                <mi>x</mi>
-                <mrow>
-                    <mn>1</mn>
+<center>
+    <math>
+        <mrow>    
+            <mi><b>x</b></mi>
+            <mo>=</mo> 
+            <mo>[</mo>
+                <msub>
                     <mi>x</mi>
-                </mrow>
-            </msub>
-            <mo>, </mo>
-            <msub>
-                <mi>x</mi>
-                <mrow>
-                    <mn>1</mn>
-                    <mi>y</mi>
-                </mrow>
-            </msub>
-            <mo>, </mo>
-            <msub>
-                <mi>x</mi>
-                <mrow>
-                    <mn>2</mn>
+                    <mrow>
+                        <mn>1</mn>
+                        <mi>x</mi>
+                    </mrow>
+                </msub>
+                <mo>, </mo>
+                <msub>
                     <mi>x</mi>
-                </mrow>
-            </msub>
-            <mo>, </mo>
-            <msub>
-                <mi>x</mi>
-                <mrow>
-                    <mn>2</mn>
-                    <mi>y</mi>
-                </mrow>
-            </msub>
-            <mo>, </mo>
-            <mi>&hellip;</mi>
-            <mo>, </mo>
-            <msub>
-                <mi>x</mi>
-                <mrow>
-                    <mn>38</mn>
+                    <mrow>
+                        <mn>1</mn>
+                        <mi>y</mi>
+                    </mrow>
+                </msub>
+                <mo>, </mo>
+                <msub>
                     <mi>x</mi>
-                </mrow>
-            </msub>
-            <mo>, </mo>
-            <msub>
-                <mi>x</mi>
-                <mrow>
-                    <mn>38</mn>
-                    <mi>y</mi>
-                </mrow>
-            </msub>
-        <mo>]</mo>
-    </mrow>
-</math>
-
+                    <mrow>
+                        <mn>2</mn>
+                        <mi>x</mi>
+                    </mrow>
+                </msub>
+                <mo>, </mo>
+                <msub>
+                    <mi>x</mi>
+                    <mrow>
+                        <mn>2</mn>
+                        <mi>y</mi>
+                    </mrow>
+                </msub>
+                <mo>, </mo>
+                <mi>&hellip;</mi>
+                <mo>, </mo>
+                <msub>
+                    <mi>x</mi>
+                    <mrow>
+                        <mn>38</mn>
+                        <mi>x</mi>
+                    </mrow>
+                </msub>
+                <mo>, </mo>
+                <msub>
+                    <mi>x</mi>
+                    <mrow>
+                        <mn>38</mn>
+                        <mi>y</mi>
+                    </mrow>
+                </msub>
+            <mo>]</mo>
+        </mrow>
+    </math>
+</center>
 
 ## Invertible NN
 
