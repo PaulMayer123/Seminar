@@ -98,7 +98,7 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
     <mrow>    
         <mi><b>x</b></mi>
         <mo>=</mo> 
-        <mfenced>
+        <mo>[</mo>
             <msub>
                 <mi>x</mi>
                 <mrow>
@@ -106,6 +106,7 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
                     <mi>x</mi>
                 </mrow>
             </msub>
+            <mo>, </mo>
             <msub>
                 <mi>x</mi>
                 <mrow>
@@ -113,6 +114,7 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
                     <mi>y</mi>
                 </mrow>
             </msub>
+            <mo>, </mo>
             <msub>
                 <mi>x</mi>
                 <mrow>
@@ -120,6 +122,7 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
                     <mi>x</mi>
                 </mrow>
             </msub>
+            <mo>, </mo>
             <msub>
                 <mi>x</mi>
                 <mrow>
@@ -127,7 +130,9 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
                     <mi>y</mi>
                 </mrow>
             </msub>
+            <mo>, </mo>
             <mi>&hellip;</mi>
+            <mo>, </mo>
             <msub>
                 <mi>x</mi>
                 <mrow>
@@ -135,6 +140,7 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
                     <mi>x</mi>
                 </mrow>
             </msub>
+            <mo>, </mo>
             <msub>
                 <mi>x</mi>
                 <mrow>
@@ -142,11 +148,8 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
                     <mi>y</mi>
                 </mrow>
             </msub>
-        </mfenced>
+        <mo>]</mo>
     </mrow>
-    <mfenced>
-        <mi> i </mi>
-    </mfenced>
 </math>
 
 
@@ -206,6 +209,9 @@ our generated distribution. To compute our statistics we use these new weights. 
 better more accurate the statistics.
 
 - - - - 
+
+## Results
+    For Running example
 
 # Examples
   - Maybe some Examples or focus on one with Results
