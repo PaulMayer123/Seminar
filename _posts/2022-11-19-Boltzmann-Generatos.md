@@ -98,7 +98,7 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
     <mrow>    
         <mi><b>x</b></mi>
         <mo>=</mo> 
-        <mfenced open="[" close="]">
+        <mfenced>
             <msub>
                 <mi>x</mi>
                 <mrow>
