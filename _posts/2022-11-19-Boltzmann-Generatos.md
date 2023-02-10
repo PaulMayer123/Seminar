@@ -96,9 +96,9 @@ So how does a configuration and therefore input to our network look like? For ou
 and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
 <math>
     <mrow>    
-        <mi>x</mi>
+        <mi><b>x</b></mi>
         <mo>=</mo> 
-        <mfenced open='[' close="]" separators=",">
+        <mfenced open="[" close="]">
             <msub>
                 <mi>x</mi>
                 <mrow>
@@ -106,12 +106,42 @@ and the two dimer molecules. The input vector is simply the alternating x and y 
                     <mi>x</mi>
                 </mrow>
             </msub>
-            <mi>x<msub>1y</msub></mi>
-            <mi>x<msub>2x</msub></mi>
-            <mi>x<msub>2y</msub></mi>
+            <msub>
+                <mi>x</mi>
+                <mrow>
+                    <mn>1</mn>
+                    <mi>y</mi>
+                </mrow>
+            </msub>
+            <msub>
+                <mi>x</mi>
+                <mrow>
+                    <mn>2</mn>
+                    <mi>x</mi>
+                </mrow>
+            </msub>
+            <msub>
+                <mi>x</mi>
+                <mrow>
+                    <mn>2</mn>
+                    <mi>y</mi>
+                </mrow>
+            </msub>
             <mi>&hellip;</mi>
-            <mi>x<msub>38x</msub></mi>
-            <mi>x<msub>38y</msub></mi>
+            <msub>
+                <mi>x</mi>
+                <mrow>
+                    <mn>38</mn>
+                    <mi>x</mi>
+                </mrow>
+            </msub>
+            <msub>
+                <mi>x</mi>
+                <mrow>
+                    <mn>38</mn>
+                    <mi>y</mi>
+                </mrow>
+            </msub>
         </mfenced>
     </mrow>    
 [ x_1
