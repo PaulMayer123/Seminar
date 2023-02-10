@@ -89,6 +89,11 @@ Which we now take a closer look at.
 
 - - - -
 
+## Input
+So how does a configuration and therefore input to our network look like? For our dimer example, we have 36 solvent particles
+and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
+&&x=[x&&
+
 
 ## Invertible NN
 
