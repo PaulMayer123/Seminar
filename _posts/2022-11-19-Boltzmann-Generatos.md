@@ -181,7 +181,7 @@ step of the boltzmann generators. Statistical mechanics offer many tools to gene
 </sub> is sufficiently similar.
 The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. Where e<sup>-u(x)</sup> is the boltzmann distribution that we can
 compute, because we know the energy of the sample. To compute our statistics we use these new weights. And the more equal the distributions are,
-the better and more accurate the statistics. [test](#Boltzmann)
+the better and more accurate the statistics.
 
 - - - - 
 <br>
@@ -210,15 +210,15 @@ latent space. If we transform this path back to the configuration space, we obta
 from one to the other. One of these paths can be seen in the next image.
 
 
-<p align="center">
+<figure align="center">
     <a name="transitionPath">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transition-paths.png" width="400" title="hover text">
+        <figcaption>Fig.1 Transition Path - F. Noé, S. Olsson, J. Köhler, H. Wu. (2016) [[1]](#Boltzmann)</figcaption>
     </a>
-</p>
+</figure>
 
 <!-- exploration -->
 
-[Custom foo description](#transitionPath)
 
 # Conclusion #
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
@@ -230,7 +230,7 @@ scratch. Ideally we could pretrain the boltzmann generators so that we only have
 case. We also end up with the trade off that we do not have to do the small simulation steps, but the more complex the system
 the more difficult it is to reweight and the results are not that accurate anymore. The Boltzmann generators can be
 used in many topics and there are some papers that build up on it. So whenever we want to sample from a known distribution
-we can use this approach. [[1]](#1)
+we can use this approach. 
 
 - - - -
 <br>
