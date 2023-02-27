@@ -13,10 +13,9 @@ equilibrium distribution to compute statistics about the system.
 In this blog I present the new approach to generate "one-shot" samples from the paper "Boltzmann generators: Sampling 
 equilibrium states of many-body systems with deep learning". I will focus mainly on the machine learning tools they used
 to achieve this.
-
+- - - -
 <br>
 # Many-Body Problems
-- - - -
 Many-body problems are a category of physical problems. They are about microscopic systems made of many interacting 
 particles <!-- Quelle wiki -->. The underlying physical laws can be simple, but the resulting system as a whole is 
 extremely complex. In condensed matter physics, the macroscopic and microscopic physical properties of matter are 
