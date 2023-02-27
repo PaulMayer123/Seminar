@@ -26,12 +26,12 @@ described via the equations of motion. The equations thus takes into account the
 particles. The equations of motion don't have just one solution, therefore we are talking about probabilities of certain 
 states. Often the most interesting states are rare-events, like the transition of a protein from folded to unfolded or vice
 versa. One example that we take a closer look at throughout this blog, is an open or closed dimer. This condensed matter
-system consists of 36 molecules. The focus lies on the two colored particles in figure <a href="#ImageDenseSystem">1</a> <!-- ref -->. These can be in two
+system consists of 36 molecules. The focus lies on the two colored particles in figure <a href="#ImageDenseSystem">1</a>. These can be in two
 main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event. Additionally,
 a possible interesting statistic is the probability that the dimer is closed or open. 
 
 <figure align="center">
-    <div name="ImageDenseSystem">
+    <div id="ImageDenseSystem">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="252.25" title="hover text">
         <figcaption>Fig.1 Repulsive particle system with bistable dimer. Closed (blue, left), Open (red, right)  - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
