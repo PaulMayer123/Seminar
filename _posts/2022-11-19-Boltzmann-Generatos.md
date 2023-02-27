@@ -34,7 +34,7 @@ a possible interesting statistic is the probability that the dimer is closed or 
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="252.25" title="hover text">
     </a>
 </p>
-
+<br>
 # Boltzmann Distribution <!-- Nochmal motivieren warum wir hiervon samplen wollen(was beschreibt sie,...) -->
 The boltzmann distribution often appears in such problems. It takes into account the energy and temperature of the system.
 The less energy of a state, the higher its probability is. In our example, the system has the lowest energy, when the 
@@ -48,9 +48,9 @@ with small steps. These steps can be in the order of femto seconds! Therefore, w
 meta-stable state to the other. For the transition from the open to closed dimer 10<sup>12</sup> simulation steps are 
 needed. Furthermore, the obtained samples are often correlated to each other.
 
+- - - -
 <br>
 # Boltzmann Generators
-- - - -
 How can we use machine learning to improve the sampling? As in the name of the paper Boltzmann generators are used to 
 obtain independent, "one shot" samples. So we no longer need small simulation steps.
 
@@ -95,7 +95,7 @@ sample in our configuration space. We thus generate a distribution p<sub>x</sub>
 boltzmann distribution, but not exact. That's why some reweighting is needed. Our Network consists out of smaller blocks.
 
 - - - -
-
+<br>
 ## Input
 So how does a configuration and therefore input to our network look like? For our dimer example, we have n <sub>s</sub>
 = 36 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
@@ -135,9 +135,9 @@ layers with 200 neurons.
     </a>
 </p>
 
+- - - -  
 <br>
 ## Training
-- - - -  
 
 Why do we need invertible Blocks? There are two ways to train our network, so that we really get good, realistic samples.
 And each of it requires the other direction. The first mode is called training-by-energy:
@@ -183,6 +183,7 @@ compute, because we know the energy of the sample. To compute our statistics we 
 the better and more accurate the statistics.
 
 - - - - 
+<br>
 
 ## Results
 Let's look at the result for the system with the dimer. We recall that the dimer can be closed or open. And these states
@@ -231,9 +232,8 @@ used in many topics and there are some papers that build up on it. So whenever w
 we can use this approach.
 
 - - - -
-
+<br>
 # References
-
 - <a name="Boltzmann">F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)</a>
 - <a name="RealNvp">Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)</a>
 - <a name="NoeYoutube">Frank Noe. (2020, 26. September). MLDS 2020 - 3 Boltzmann Generators. YouTube. https://youtu.be/WuXJRswYIaA</a>
