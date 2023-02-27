@@ -235,7 +235,7 @@ we can use this approach. [[1]](#1)
 <br>
 # References
 - <a href="https://www.science.org/doi/10.1126/science.aaw1147" target="_blank" name="Boltzmann">[1]</a> F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)
-- <a name="RealNvp">Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)</a>
-- <a name="NoeYoutube">Frank Noe. (2020, 26. September). MLDS 2020 - 3 Boltzmann Generators. YouTube. https://youtu.be/WuXJRswYIaA</a>
-- <a name="PhysicsYoutube">ICTP Condensed Matter and Statistical Physics. (2021, 16. December). Enhanced sampling in Molecular Dynamics: Why is it necessary?. Youtube. https://www.youtube.com/watch?v=2S3xYRLy2cI</a>
+- <a href="https://arxiv.org/abs/1605.08803" target="_blank" name="RealNvp">[2]</a> Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)
+- <a href="https://youtu.be/WuXJRswYIaA" target="_blank" name="NoeYoutube">[3]</a> Frank Noe. (2020, 26. September). MLDS 2020 - 3 Boltzmann Generators. YouTube. https://youtu.be/WuXJRswYIaA
+- <a href="https://www.youtube.com/watch?v=2S3xYRLy2cI" target="_blank" name="PhysicsYoutube">[4]</a> ICTP Condensed Matter and Statistical Physics. (2021, 16. December). Enhanced sampling in Molecular Dynamics: Why is it necessary?. Youtube. https://www.youtube.com/watch?v=2S3xYRLy2cI
 
