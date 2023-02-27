@@ -29,12 +29,13 @@ system consists of 36 molecules. The focus lies on the two colored particles in 
 main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event. Additionally,
 a possible interesting statistic is the probability that the dimer is closed or open. 
 
-<p align="center">
-    <a name="ImageDenseSystem">
+<figure align="center">
+    <div name="ImageDenseSystem">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="252.25" title="hover text">
-    </a>
-</p>
+        <figcaption>Fig.1 Repulsive particle system with bistable dimer. Closed (blue, left), Open (red, right)  - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
+    </div>
+</figure>
 <br>
 # Boltzmann Distribution <!-- Nochmal motivieren warum wir hiervon samplen wollen(was beschreibt sie,...) -->
 The boltzmann distribution often appears in such problems. It takes into account the energy and temperature of the system.
@@ -67,11 +68,12 @@ close to each other. And in such a way, that we can sample from there with a gau
 Since in our example this results in a 76 dimensional gaussian(which is difficult to visualize). Let's look at a simpler
 example that shows the principle better:
 
-<p align="center">
-    <a name="ImageRealNvp">
+<figure align="center">
+    <div name="ImageRealNvp">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Transform-RealNVP.png" width="750" title="Transformation">
-    </a>
-</p>
+        <figcaption>Fig.2 Transformation -  Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio (2016) <a href="#RealNvp">[2]</a></figcaption>
+    </div>
+</figure>
 
 The left part(blue) shows the configuration space of our data. After the transform we have the samples repacked in a gaussian 
 like shape (right blue part). The bends and stretches of the gray lines illustrate well the transformation. The key part 
@@ -85,11 +87,12 @@ We do this via a deep invertible neural network. As illustrated in the next imag
 2. Transform via Neural Network
 3. Reweight
 
-<p align="center">
-    <a name="ImageWhole">
+<figure align="center">
+    <div name="ImageWhole">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Boltzmann-with-Reweight.png" width="350" title="hover text">
-    </a>
-</p>
+        <figcaption>Fig.3 Boltzmann Generators - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
+    </div>
+</figure>
 
 We start by drawing a sample from a gaussian distribution. Then we transform it through our Network and therefore get a
 sample in our configuration space. We thus generate a distribution p<sub>x</sub>. This distribution is similar to the 
@@ -130,11 +133,12 @@ A block consist of 2 layers one modification of each channel. We can stack those
 For our running example 8 blocks (with 2 layers each) were used. Furthermore, the networks S and T consist of 3 hidden
 layers with 200 neurons.
 <br>
-<p align="center">
-    <a name="ImageInvertible">
+<figure align="center">
+    <div name="ImageInvertible">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="hover text">
-    </a>
-</p>
+        <figcaption>Fig.4 Real NVP Transformation Block </figcaption>
+    </div>
+</figure>
 
 - - - -  
 <br>
@@ -147,11 +151,12 @@ And each of it requires the other direction. The first mode is called training-b
 1. Sample from gaussian
 2. Transform through NN and generate a distribution p<sub>x</sub>
 
-<p align="center">
-    <a name="ImageTrainByEnergy">
-    <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="400" title="hover text">
-    </a>
-</p>
+<figure align="center">
+    <div name="ImageTrainByEnergy">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="400" title="hover text">
+        <figcaption>Fig.5 Training by Energy - adapted from: F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
+    </div>
+</figure>
 In the beginning p<sub>x</sub> will be very different from the boltzmann distribution. We want to minimize this 
 difference. We therefore use the Kullback-Leibler-Divergence which is derived from the difference between
 two distributions. So we do not need samples from the configuration space for this training mode. But it tends to focus
@@ -162,11 +167,12 @@ on the most meta-stable state.
 1. Start with a valid configuration (from simulation or experiments)
 2. Transform through NN in other direction
 
-<p align="center">
-    <a name="ImageTrainByExample">
+<figure align="center">
+    <div name="ImageTrainByExample">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="400" title="hover text">
-    </a>
-</p>
+        <figcaption>Fig.6 Training by Example - adapted from: F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
+    </div>
+</figure>
 This mode is as we all know we start with valid configuration. We use our transformation in the other direction.
 Training by example is especially good in the early stages, but requires configurations.
 <b>So the best way is to combine both methods together.</b>
@@ -192,11 +198,12 @@ are separated by a high energy barrier to transition from one to the other. In t
 gaussian. One possible statistic is the free energy difference. In the following image we can see the black line that was
 obtained by classical sampling methods. The green points are samples generated with the boltzmann generators.
 
-<p align="center">
-    <a name="FreeEnergy">
+<figure align="center">
+    <div name="FreeEnergy">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-FreeEnergyDiff.png" width="350" title="hover text">
-    </a>
-</p>
+        <figcaption>Fig.7 Free Energy Difference - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
+    </div>
+</figure>
 
 For one transition from one meta-stable state to the other and back, the simulation needs 10<sup>12</sup> steps. To get
 the same precision as the boltzmann generators we need 100 of those transitions. On the other hand the boltzmann generators
@@ -213,7 +220,7 @@ from one to the other. One of these paths can be seen in the next image.
 <figure align="center">
     <div  name="transitionPath">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transition-paths.png" width="400" title="hover text">
-        <figcaption>Fig.1 Transition Path - F. Noé, S. Olsson, J. Köhler, H. Wu. (2016) <a href="#Boltzmann">[1]</a></figcaption>
+        <figcaption>Fig.8 Transition Path - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
 
