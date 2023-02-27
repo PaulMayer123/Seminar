@@ -14,7 +14,7 @@ In this blog I present the new approach to generate "one-shot" samples from the 
 equilibrium states of many-body systems with deep learning". I will focus mainly on the machine learning tools they used
 to achieve this.
 
-<br></br>
+<br>
 # Many-Body Problems
 - - - -
 Many-body problems are a category of physical problems. They are about microscopic systems made of many interacting 
@@ -30,9 +30,10 @@ main states: closed (left) or open (right). The transition from one to the other
 a possible interesting statistic is the probability that the dimer is closed or open. 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
-    <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="252.25" title="hover text">
-
+    <a name="ImageDenseSystem">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="252.25" title="hover text">
+    </a>
 </p>
 
 # Boltzmann Distribution <!-- Nochmal motivieren warum wir hiervon samplen wollen(was beschreibt sie,...) -->
@@ -48,7 +49,7 @@ with small steps. These steps can be in the order of femto seconds! Therefore, w
 meta-stable state to the other. For the transition from the open to closed dimer 10<sup>12</sup> simulation steps are 
 needed. Furthermore, the obtained samples are often correlated to each other.
 
-<br></br>
+<br>
 # Boltzmann Generators
 - - - -
 How can we use machine learning to improve the sampling? As in the name of the paper Boltzmann generators are used to 
@@ -67,7 +68,9 @@ Since in our example this results in a 76 dimensional gaussian(which is difficul
 example that shows the principle better:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Transform-RealNVP.png" width="750" title="Transformation">
+    <a name="ImageRealNvp">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Transform-RealNVP.png" width="750" title="Transformation">
+    </a>
 </p>
 
 The left part(blue) shows the configuration space of our data. After the transform we have the samples repacked in a gaussian 
@@ -83,7 +86,9 @@ We do this via a deep invertible neural network. As illustrated in the next imag
 3. Reweight
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Boltzmann-with-Reweight.png" width="350" title="hover text">
+    <a name="ImageWhole">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Boltzmann-with-Reweight.png" width="350" title="hover text">
+    </a>
 </p>
 
 We start by drawing a sample from a gaussian distribution. Then we transform it through our Network and therefore get a
@@ -96,11 +101,15 @@ boltzmann distribution, but not exact. That's why some reweighting is needed. Ou
 So how does a configuration and therefore input to our network look like? For our dimer example, we have n <sub>s</sub>
 = 36 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="350" title="hover text">
+    <a name="ImageInput">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="350" title="hover text">
+    </a>
 </p>
 With this input vector we can compute the energy of the system as follows:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="600" title="hover text">
+    <a name="ImageEquations">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="600" title="hover text">
+    </a>
 </p>
 
 The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
@@ -122,10 +131,12 @@ For our running example 8 blocks (with 2 layers each) were used. Furthermore, th
 layers with 200 neurons.
 <br>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="hover text">
+    <a name="ImageInvertible">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="hover text">
+    </a>
 </p>
 
-<br></br>
+<br>
 ## Training
 - - - -  
 
@@ -137,7 +148,9 @@ And each of it requires the other direction. The first mode is called training-b
 2. Transform through NN and generate a distribution p<sub>x</sub>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="400" title="hover text">
+    <a name="ImageTrainByEnergy">
+    <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="400" title="hover text">
+    </a>
 </p>
 In the beginning p<sub>x</sub> will be very different from the boltzmann distribution. We want to minimize this 
 difference. We therefore use the Kullback-Leibler-Divergence which is derived from the difference between
@@ -150,7 +163,9 @@ on the most meta-stable state.
 2. Transform through NN in other direction
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="400" title="hover text">
+    <a name="ImageTrainByExample">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="400" title="hover text">
+    </a>
 </p>
 This mode is as we all know we start with valid configuration. We use our transformation in the other direction.
 Training by example is especially good in the early stages, but requires configurations.
@@ -177,7 +192,9 @@ gaussian. One possible statistic is the free energy difference. In the following
 obtained by classical sampling methods. The green points are samples generated with the boltzmann generators.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-FreeEnergyDiff.png" width="350" title="hover text">
+    <a name="FreeEnergy">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-FreeEnergyDiff.png" width="350" title="hover text">
+    </a>
 </p>
 
 For one transition from one meta-stable state to the other and back, the simulation needs 10<sup>12</sup> steps. To get
@@ -218,8 +235,8 @@ we can use this approach.
 
 # References
 
-- F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)
-- Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)
-- Frank Noe. (2020, 26. September). MLDS 2020 - 3 Boltzmann Generators. YouTube. https://youtu.be/WuXJRswYIaA
-- ICTP Condensed Matter and Statistical Physics. (2021, 16. December). Enhanced sampling in Molecular Dynamics: Why is it necessary?. Youtube. https://www.youtube.com/watch?v=2S3xYRLy2cI
+- <a name="Boltzmann">F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)</a>
+- <a name="RealNvp">Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)</a>
+- <a name="NoeYoutube">Frank Noe. (2020, 26. September). MLDS 2020 - 3 Boltzmann Generators. YouTube. https://youtu.be/WuXJRswYIaA</a>
+- <a name="PhysicsYoutube">ICTP Condensed Matter and Statistical Physics. (2021, 16. December). Enhanced sampling in Molecular Dynamics: Why is it necessary?. Youtube. https://www.youtube.com/watch?v=2S3xYRLy2cI</a>
 
