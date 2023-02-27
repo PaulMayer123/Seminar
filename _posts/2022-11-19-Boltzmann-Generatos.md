@@ -14,7 +14,9 @@ In this blog I present the new approach to generate "one-shot" samples from the 
 equilibrium states of many-body systems with deep learning". I will focus mainly on the machine learning tools they used
 to achieve this.
 
+<br></br>
 # Many-Body Problems
+- - - -
 Many-body problems are a category of physical problems. They are about microscopic systems made of many interacting 
 particles <!-- Quelle wiki -->. The underlying physical laws can be simple, but the resulting system as a whole is 
 extremely complex. In condensed matter physics, the macroscopic and microscopic physical properties of matter are 
@@ -46,9 +48,9 @@ with small steps. These steps can be in the order of femto seconds! Therefore, w
 meta-stable state to the other. For the transition from the open to closed dimer 10<sup>12</sup> simulation steps are 
 needed. Furthermore, the obtained samples are often correlated to each other.
 
-- - - -
-
+<br></br>
 # Boltzmann Generators
+- - - -
 How can we use machine learning to improve the sampling? As in the name of the paper Boltzmann generators are used to 
 obtain independent, "one shot" samples. So we no longer need small simulation steps.
 
@@ -123,7 +125,9 @@ layers with 200 neurons.
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="hover text">
 </p>
 
+<br></br>
 ## Training
+- - - -  
 
 Why do we need invertible Blocks? There are two ways to train our network, so that we really get good, realistic samples.
 And each of it requires the other direction. The first mode is called training-by-energy:
