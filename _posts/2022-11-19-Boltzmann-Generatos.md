@@ -11,8 +11,9 @@ the enumeration of all these states is infeasible, and we therefore have to samp
 equilibrium distribution to compute statistics about the system. 
 <!--(What do we need/want?) statistically independent samples x from Boltzmann Distribution -->
 
-In this blog I present the new approach to generate "one-shot" samples from the paper "Boltzmann generators: Sampling 
-equilibrium states of many-body systems with deep learning". I will focus mainly on the machine learning tools they used
+In this blog I present the new approach to generate "one-shot" samples from the paper 
+<a href="https://www.science.org/doi/10.1126/science.aaw1147" target="_blank">Boltzmann generators: Sampling 
+equilibrium states of many-body systems with deep learning</a>. I will focus mainly on the machine learning tools they used
 to achieve this.
 - - - -
 <br>
@@ -25,7 +26,7 @@ described via the equations of motion. The equations thus takes into account the
 particles. The equations of motion don't have just one solution, therefore we are talking about probabilities of certain 
 states. Often the most interesting states are rare-events, like the transition of a protein from folded to unfolded or vice
 versa. One example that we take a closer look at throughout this blog, is an open or closed dimer. This condensed matter
-system consists of 36 molecules. The focus lies on the two colored particles in the picture <!-- ref -->. These can be in two
+system consists of 36 molecules. The focus lies on the two colored particles in figure [1](#ImageDenseSystem) <!-- ref -->. These can be in two
 main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event. Additionally,
 a possible interesting statistic is the probability that the dimer is closed or open. 
 
