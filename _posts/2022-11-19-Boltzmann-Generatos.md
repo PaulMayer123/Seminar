@@ -180,7 +180,7 @@ step of the boltzmann generators. Statistical mechanics offer many tools to gene
 </sub> is sufficiently similar.
 The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. Where e<sup>-u(x)</sup> is the boltzmann distribution that we can
 compute, because we know the energy of the sample. To compute our statistics we use these new weights. And the more equal the distributions are,
-the better and more accurate the statistics. [[1]](#1)
+the better and more accurate the statistics. [test](#Boltzmann)
 
 - - - - 
 <br>
@@ -234,7 +234,7 @@ we can use this approach. [[1]](#1)
 - - - -
 <br>
 # References
-- <a href="https://www.science.org/doi/10.1126/science.aaw1147" target="_blank" name="Boltzmann">[1]</a> F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)
+- <a href="https://www.science.org/doi/10.1126/science.aaw1147" target="_blank" id="Boltzmann">[1]</a> F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)
 - <a href="https://arxiv.org/abs/1605.08803" target="_blank" name="RealNvp">[2]</a> Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)
 - <a href="https://youtu.be/WuXJRswYIaA" target="_blank" name="NoeYoutube">[3]</a> Frank Noe. (2020, 26. September). MLDS 2020 - 3 Boltzmann Generators. YouTube. https://youtu.be/WuXJRswYIaA
 - <a href="https://www.youtube.com/watch?v=2S3xYRLy2cI" target="_blank" name="PhysicsYoutube">[4]</a> ICTP Condensed Matter and Statistical Physics. (2021, 16. December). Enhanced sampling in Molecular Dynamics: Why is it necessary?. Youtube. https://www.youtube.com/watch?v=2S3xYRLy2cI
