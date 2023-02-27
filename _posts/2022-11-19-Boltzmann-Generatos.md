@@ -211,10 +211,10 @@ from one to the other. One of these paths can be seen in the next image.
 
 
 <figure align="center">
-    <a name="transitionPath">
+    <div  name="transitionPath">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transition-paths.png" width="400" title="hover text">
-        <figcaption>Fig.1 Transition Path - F. Noé, S. Olsson, J. Köhler, H. Wu. (2016) [[1]](#Boltzmann)</figcaption>
-    </a>
+        <figcaption>Fig.1 Transition Path - F. Noé, S. Olsson, J. Köhler, H. Wu. (2016) <a href="#Boltzmann">[1]</a></figcaption>
+    </div>
 </figure>
 
 <!-- exploration -->
