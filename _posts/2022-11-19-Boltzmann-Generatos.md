@@ -21,11 +21,11 @@ extremely complex. In condensed matter physics, the macroscopic and microscopic 
 studied, in particular the solid and liquid phases formed by electromagnetic forces between atoms. The system can be
 described via the equations of motion. The equations thus takes into account the mass, position, energy and forces of the 
 particles. The equations of motion don't have just one solution, therefore we are talking about probabilities of certain 
-states. Often the most interesting states are rare-events, like the transition of a protein from folded to unfolded or vise
+states. Often the most interesting states are rare-events, like the transition of a protein from folded to unfolded or vice
 versa. One example that we take a closer look at throughout this blog, is an open or closed dimer. This condensed matter
-system consists of 36 molecules. The focus lies on the two colored in the picture <!-- ref -->. These two can be in to
+system consists of 36 molecules. The focus lies on the two colored particles in the picture <!-- ref -->. These can be in two
 main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event. Additionally,
-a possible interesting statistic is the probability that the primer is closed or open. 
+a possible interesting statistic is the probability that the dimer is closed or open. 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
@@ -36,7 +36,7 @@ a possible interesting statistic is the probability that the primer is closed or
 # Boltzmann Distribution <!-- Nochmal motivieren warum wir hiervon samplen wollen(was beschreibt sie,...) -->
 The boltzmann distribution often appears in such problems. It takes into account the energy and temperature of the system.
 The less energy of a state, the higher its probability is. In our example, the system has the lowest energy, when the 
-primer is closed or open. To transition from one to the other a high energy barrier must be overcome and therefore these
+dimer is closed or open. To transition from one to the other a high energy barrier must be overcome and therefore these
 events are quite rare. If we have a given configuration of our system, we can compute the energy and thus can compute the
 corresponding Boltzmann weight. <!-- Hier Beispiel U(x) angeben?? oder alles zusammen später -->
 
@@ -61,7 +61,7 @@ So how do these boltzmann generators work? The key idea is a coordinate transfor
 (as seen before: the positions and forces of the molecules) to a so-called latent space Z. There different states are 
 close to each other. And in such a way, that we can sample from there with a gaussian. 
 
-Since in our example this results in an 76 dimensional gaussian(which is difficult to visualize). Let's look at a simpler
+Since in our example this results in a 76 dimensional gaussian(which is difficult to visualize). Let's look at a simpler
 example that shows the principle better:
 
 <p align="center">
@@ -70,7 +70,7 @@ example that shows the principle better:
 
 The left part(blue) shows the configuration space of our data. After the transform we have the samples repacked in a gaussian 
 like shape (right blue part). The bends and stretches of the gray lines illustrate well the transformation. The key part 
-is that we this transformation is invertible. That means we can also transform in the other direction. So if we have
+is that the transformation is invertible. That means we can also transform in the other direction. So if we have
 samples in the latent space(red right part) we can transform them into our configuration space and get something similar
 to our data back. In our case we want to draw a sample in the latent space via a gaussian and then transform the sample
 to our configuration space to obtain a sample for our original problem. 
@@ -160,15 +160,15 @@ is also used and the whole network is trained for 2000 epochs.
 Because of our network, we never have exactly the boltzmann distribution. Therefore, we need a bit of reweighting. The third
 step of the boltzmann generators. Statistical mechanics offer many tools to generate the wanted distribution when p<sub>x
 </sub> is sufficiently similar.
-The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. The first part is the boltzmann distribution and the second is
-our generated distribution. To compute our statistics we use these new weights. And the closer the distribution is the
-better and more accurate the statistics.
+The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. Where e<sup>-u(x)</sup> is the boltzmann distribution that we can
+compute, because we know the energy of the sample. To compute our statistics we use these new weights. And the more equal the distributions are,
+the better and more accurate the statistics.
 
 - - - - 
 
 ## Results
 Let's look at the result for the system with the dimer. We recall that the dimer can be closed or open. And these states
-are separated by a high energy barrier to transition from one to the other. In the latent space, we obtain a 76-dimensional
+are separated by a high energy barrier to transition from one to the other. In the latent space, we obtain a 76 dimensional
 gaussian. One possible statistic is the free energy difference. In the following image we can see the black line that was
 obtained by classical sampling methods. The green points are samples generated with the boltzmann generators.
 
@@ -185,23 +185,28 @@ computations.
 ## Transition Paths
 What else can we do with the transformation? If we take our 2 meta-stable states, we can do a linear interpolation in the
 latent space. If we transform this path back to the configuration space, we obtain possible and realistic transition paths
-from one to the other. One of than can be seen in the next image.
+from one to the other. One of these paths can be seen in the next image.
+
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transition-paths.png" width="400" title="hover text">
+    <a name="transitionPath">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transition-paths.png" width="400" title="hover text">
+    </a>
 </p>
 
 <!-- exploration -->
+
+[Custom foo description](#transitionPath)
 
 # Conclusion #
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
 independent <b>one-shot</b> samples. And in the paper they show an example with a dense systems with more than 1000 dimension.
 But the approach is not ergodic, which means it does not cover the whole configuration space. Although
-in the paper some ideas are broad up to combine the boltzmann generators with classical sampling methods to fix this.
+in the paper some ideas are brought up to combine the boltzmann generators with classical sampling methods to fix this.
 Moreover, the networks are always very system specific, and therefore we have to train on every configuration space from
 scratch. Ideally we could pretrain the boltzmann generators so that we only have to fine-tune it to every special use
-case. We also end up with the trade of that we do not have to do the small simulation steps, but the complexer the system
-the more difficult it is to reweight and the result are not that accurate anymore. The Boltzmann generators can be
+case. We also end up with the trade off that we do not have to do the small simulation steps, but the more complex the system
+the more difficult it is to reweight and the results are not that accurate anymore. The Boltzmann generators can be
 used in many topics and there are some papers that build up on it. So whenever we want to sample from a known distribution
 we can use this approach.
 
