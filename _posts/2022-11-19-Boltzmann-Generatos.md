@@ -229,12 +229,12 @@ scratch. Ideally we could pretrain the boltzmann generators so that we only have
 case. We also end up with the trade off that we do not have to do the small simulation steps, but the more complex the system
 the more difficult it is to reweight and the results are not that accurate anymore. The Boltzmann generators can be
 used in many topics and there are some papers that build up on it. So whenever we want to sample from a known distribution
-we can use this approach.
+we can use this approach. [[1]](#1)
 
 - - - -
 <br>
 # References
-- <a name="Boltzmann">[1]</a> F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)
+- <a href="https://www.science.org/doi/10.1126/science.aaw1147" name="Boltzmann">[1]</a> F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)
 - <a name="RealNvp">Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)</a>
 - <a name="NoeYoutube">Frank Noe. (2020, 26. September). MLDS 2020 - 3 Boltzmann Generators. YouTube. https://youtu.be/WuXJRswYIaA</a>
 - <a name="PhysicsYoutube">ICTP Condensed Matter and Statistical Physics. (2021, 16. December). Enhanced sampling in Molecular Dynamics: Why is it necessary?. Youtube. https://www.youtube.com/watch?v=2S3xYRLy2cI</a>
