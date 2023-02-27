@@ -180,7 +180,7 @@ step of the boltzmann generators. Statistical mechanics offer many tools to gene
 </sub> is sufficiently similar.
 The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. Where e<sup>-u(x)</sup> is the boltzmann distribution that we can
 compute, because we know the energy of the sample. To compute our statistics we use these new weights. And the more equal the distributions are,
-the better and more accurate the statistics.
+the better and more accurate the statistics. [[1]](#1)
 
 - - - - 
 <br>
