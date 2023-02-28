@@ -123,8 +123,19 @@ With this input vector we can compute the energy of the system as follows:
     </a>
 </div>
 
+Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particles, h the step function. The other parameters
 
-Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particle, h the step function.
+\\[
+ U(x) = k_d(x_{1x} + x_{2x})^2 + k_dx_{1y}^2 + k_dx_{2y}^2
+ + \frac{1}{4} a (d -d_0)^4 - \frac{1}{2} b (d - d_0)^2 + c(d - d_0)^4
+ + \sum_{i=1}^{n+2} h(-x_{ix} - l_{box})k_{box}(-x_{ix} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{ix} - l_{box})k_{box}(x_{ix} - l_{box})^2
+ + \sum_{i=1}^{n+2} h(-x_{iy} - l_{box})k_{box}(-x_{iy} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{iy} - l_{box})k_{box}(x_{iy} - l_{box})^2
+ + \epsilon \sum_{i=1}^{n+1} \sum_{j=i+1,j \neq 2}^{n+2} (\frac{\sigma}{ \lVert x_i - x_j \rVert })^{12}
+\\]
+
+\\[
+x = [x_{1x}, x_{1y}, x_{2x}, x_{2y}, \dots, x_{(n_s+2)x}, x_{(n_s+2)y}]
+\\]
 The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
 The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
 on the edges of our system (x and y direction). And the last row describes the interaction therefore repulsion of the other
@@ -133,7 +144,7 @@ particles
 ## Invertible NN
 Let's look at the smaller blocks that make up our network. These blocks are invertible and the boltzmann generators use RealNVP transformations. It uses only trivial invertible
 operations, like addition and multiplication. In the image, the blue part is for the direction from the latent space to the 
-configuration space and the red part for the other direction. First the input is split into 2 channels (x<sub>1</sub>, x<sub>2</sub>).
+configuration space and the red part for the other direction. First the input is split into 2 channels \\( (x_1, x_2) \\).
 One channel remains unchanged and is only used as input to change the second input. S and T are two
 <b>non</b>-invertible networks. We use the first channel as input of these networks and then multiply or add it to the 
 second channel. Even though the two Networks are not invertible, we know their input and therefore can recompute it and 
