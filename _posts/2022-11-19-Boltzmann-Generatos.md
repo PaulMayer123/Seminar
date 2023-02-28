@@ -106,17 +106,17 @@ boltzmann distribution, but not exact. That's why some reweighting is needed. Ou
 ## Input
 So how does a configuration and therefore input to our network look like? For our dimer example, we have n <sub>s</sub>
 = 36 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
-<p align="center">
+<div align="center">
     <a name="ImageInput">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="350" title="hover text">
     </a>
-</p>
+</div>
 With this input vector we can compute the energy of the system as follows:
-<p align="center">
+<div align="center">
     <a name="ImageEquations">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="600" title="hover text">
     </a>
-</p>
+</div>
 
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
