@@ -152,7 +152,7 @@ a sample x and with the energy we can compute the corresponding boltzmann weight
         <tr>
             <th>Parameter</th>
             <th> \\( \epsilon \\) </th>
-            <th>\\( \sigma \\)</th>
+            <th><math>\sigma</math></th>
             <th>\\( k_d \\)</th>
             <th>\\( d_0 \\)</th>
             <th>a</th>
