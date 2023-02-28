@@ -138,7 +138,7 @@ x = [x_{1x}, x_{1y}, x_{2x}, x_{2y}, \dots, x_{(n_s+2)x}, x_{(n_s+2)y}]
 \\]
 Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particles, \\( k_d \\) the strength of the bond 
 between the dimer particles, a,b and c are coefficients that describe the energy curve for the dimer, \\( d_0 \\) the equilibrium
-distance between the dimer particles, \\( l_box \\) the length of the bounding box of the system, \\( k_{box} \\) the strength 
+distance between the dimer particles, \\( l_{box} \\) the length of the bounding box of the system, \\( k_{box} \\) the strength 
 of the bond between the particles and the bound of the box, \\( \epsilon \\) strength of the repulsion between particles,
 \\( \sigma \\) distance between two particles so that energy between them is zero and
 h the step function. The first row are the energy cost of moving the dimer particles in x and y direction.
