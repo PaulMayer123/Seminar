@@ -148,7 +148,7 @@ particles. The parameters were chosen as shown in table 1. With this equation we
 a sample x and with the energy we can compute the corresponding boltzmann weight.
 
 \\[
-\begin{array}{|c|c|c|c|c|c|c|c|c|c|
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|}
     \hline
     \text{Parameter} & \epsilon & \sigma & k_d & d_0 & a & b & c & l_{box} & k_{box} \\
     \hline
