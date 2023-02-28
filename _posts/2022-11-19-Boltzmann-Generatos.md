@@ -148,8 +148,8 @@ this equation for a given sample x. And then, with the energy, we can compute th
 
 # Invertible NN
 Let's look at the smaller blocks that make up our network. These blocks are invertible and the Boltzmann generators use RealNVP transformations. It uses only trivial invertible
-operations, like addition and multiplication. In the image (figure <a href="#ImageInvertible">4</a>), the blue part is for the direction from the latent space to the 
-configuration space and the red part for the other direction (same in figure <a href="#ImageWhole">3</a>). First the input is split into 2 channels \\( (x_1, x_2) \\).
+operations, like addition and multiplication. In the image (figure <a href="#ImageInvertible">4</a>), the blue part (left) is for the direction from the latent space to the 
+configuration space and the orange part (right) for the other direction (same in figure <a href="#ImageWhole">3</a>). First the input is split into 2 channels \\( (x_1, x_2) \\).
 One channel remains unchanged and is only used as input to change the second input. S and T are two
 <b>non</b>-invertible networks. We use the first channel as input of these networks and then multiply or add it to the 
 second channel. Even though the two networks are not invertible, we know their input and therefore can recompute it and 
