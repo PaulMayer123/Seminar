@@ -122,7 +122,9 @@ With this input vector we can compute the energy of the system as follows:
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-Where  $(ax^2 + bx + c = 0)$
+Where  $(ax^2 + bx + c = 0)$ 
+Terst
+\\( ax^2 + \sqrt{bx} + c = 0 \\)
 The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
 The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
 on the edges of our system (x and y direction). And the last row describes the interaction therefore repulsion of the other
