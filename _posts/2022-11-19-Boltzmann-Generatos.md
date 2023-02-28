@@ -147,6 +147,7 @@ on the edges of our system (x and y direction). And the last row describes the i
 particles. The parameters were chosen as shown in table 1. With this equation we can therefore compute the energy given
 a sample x and with the energy we can compute the corresponding boltzmann weight.
 
+\\[
 <div name="Table">
     <table>
         <tr>
@@ -173,10 +174,10 @@ a sample x and with the energy we can compute the corresponding boltzmann weight
             <td>3.0</td>
             <td>100.0</td>
         </tr>
-    </table>        
-
-        <figcaption>Table 1 Parameters - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
+    </table>
+    <figcaption>Table 1 Parameters - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
 </div>
+\\]
 
 ## Invertible NN
 Let's look at the smaller blocks that make up our network. These blocks are invertible and the boltzmann generators use RealNVP transformations. It uses only trivial invertible
