@@ -19,8 +19,9 @@ equilibrium distribution to compute statistics about the system.
 
 In this blog I present the new approach to generate "one-shot" samples from the paper 
 <a href="https://www.science.org/doi/10.1126/science.aaw1147" target="_blank">Boltzmann generators: Sampling 
-equilibrium states of many-body systems with deep learning</a>. I will focus mainly on the machine learning tools they used
-to achieve this.
+equilibrium states of many-body systems with deep learning</a>. With this approach, we can sample from a distribution,
+whose weights we know, but from which we cannot sample directly. First, I will give an introduction to many-body systems.
+But I will focus mainly on the machine learning tools they used to achieve this.
 - - - -
 <br>
 
@@ -154,7 +155,7 @@ One channel remains unchanged and is only used as input to change the second inp
 second channel. Even though the two networks are not invertible, we know their input and therefore can recompute it and 
 then divide or subtract it from the second channel to get our original inputs back. Note that we use the same network 
 both directions. In order to avoid that we only change one half of the input we swap the channel that gets modified every other layer.
-A block ( \\( f_1 and f_1^{-1} in figure <a href="#ImageWhole">3</a> \\) ) consist of 2 layers one modification of each channel. We can stack those blocks to obtain a deep neural network.
+A block (like \\( f_1 and f_1^{-1} in figure <a href="#ImageWhole">3</a> \\) ) consist of 2 layers one modification of each channel. We can stack those blocks to obtain a deep neural network.
 For our running example 8 blocks (with 2 layers each) were used. Furthermore, the networks S and T consist of 3 hidden
 layers with 200 neurons.
 <br>
