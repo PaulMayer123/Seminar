@@ -270,16 +270,16 @@ scratch. Ideally we could pretrain the Boltzmann generators so that we only have
 case. We also end up with the trade off that we do not have to do the small simulation steps, but the more complex the system
 the more difficult it is to reweight and the results are not that accurate anymore. The Boltzmann generators can be
 used in many topics and there are some papers that build up on it. So whenever we want to sample from a known distribution
-we can use this approach. A short summary of the most important take-away point:
+we can use this approach. A short summary of the most important take-away points:
 
-- Statistical mechanics aims to compute statistics about a many-body system, which can have a huge configuration space, and we
+- Statistical mechanics aims to compute statistics about a <b>many-body system</b>, which can have a huge configuration space, and we
 therefore need to sample
-- The Boltzmann distribution describes the probability of a configuration given the energy 
+- The <b>Boltzmann distribution</b> describes the probability of a configuration given the energy 
 - But we can use this approach also when we want to sample from a (any) known distribution
-- The traditional approach uses tiny simulations steps, which are computationally expensive and the obtained samples can
+- The traditional approach uses tiny <b>simulations steps</b>, which are computationally expensive and the obtained samples can
 be correlated
-- Boltzmann generators are a new approach that uses machine learning to obtain independent "one-shot" samples
-- The key idea is a coordinate transformation to a latent space, where different states are close to each other so that
+- <b>Boltzmann generators</b> are a new approach that uses machine learning to obtain independent "one-shot" samples
+- The key idea is a <b>coordinate transformation</b> to a latent space, where different states are close to each other so that
 we can sample from a simple gaussian distribution
 - These samples can then be transformed back to the configuration space to obtain valid samples for the system
 
