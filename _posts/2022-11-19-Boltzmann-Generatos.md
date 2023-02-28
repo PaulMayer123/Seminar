@@ -24,7 +24,7 @@ to achieve this.
 - - - -
 <br>
 
-# Many-Body Problems
+## Many-Body Problems
 Many-body problems are a category of physical problems. They are about microscopic systems made of many interacting 
 particles <!-- Quelle wiki -->. The underlying physical laws can be simple, but the resulting system as a whole is 
 extremely complex. In condensed matter physics, the macroscopic and microscopic physical properties of matter are 
