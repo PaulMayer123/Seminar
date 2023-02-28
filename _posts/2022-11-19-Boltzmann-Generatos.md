@@ -201,7 +201,9 @@ on the most meta-stable state.
 This mode is as we all know we start with valid configuration. We use our transformation in the other direction.
 Training by example is especially good in the early stages, but requires configurations.
 <b>So the best way is to combine both methods together.</b>
-For the dimer example, we start with only 'training by example' for the first 20 epochs. After that the 'training by energy'
+For the dimer example, we start with only 'training by example' for the first 20 epochs with 10<sup>5</sup>
+simulation steps for the open and closed
+dimer states, but without transitions between these states occurring in the simulations. After that the 'training by energy'
 is also used and the whole network is trained for 2000 epochs.
 
 
