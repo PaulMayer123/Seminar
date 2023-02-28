@@ -105,6 +105,7 @@ Boltzmann distribution, but not exact. That's why some reweighting is needed. Ou
 
 - - - -
 <br>
+
 ## Input
 So how does a configuration, and therefore input to our network look like? For our dimer example, we have \\( n_s = 36 \\)
 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
