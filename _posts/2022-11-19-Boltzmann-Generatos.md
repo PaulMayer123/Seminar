@@ -165,12 +165,12 @@ a sample x and with the energy we can compute the corresponding boltzmann weight
             <th>Parameter</th>
             <th> \\( \epsilon \\) </th>
             <th><math>\sigma</math></th>
-            <th>\\( k_d \\)</th>
-            <th>\\( d_0 \\)</th>
+            <th><math> k_d </math></th>
+            <th><math> d <msub>0</msub> </math></th>
             <th>a</th>
             <th>b</th>
             <th>c</th>
-            <th>\\( l_box \\)</th>
+            <th><math>l <sub>box</sub> </math></th>
             <th>\\( k_{box} \\)</th>
         </tr>
         <tr>
