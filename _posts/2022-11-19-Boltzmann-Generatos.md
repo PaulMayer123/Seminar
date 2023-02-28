@@ -4,6 +4,10 @@ date: 2022-11-19
 tags: "Paul Mayer"
 ---
 
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 ## What's the Problem?
 
 What is the probability that a protein will be folded at a given temperature? This and many more questions like this are
@@ -104,13 +108,14 @@ boltzmann distribution, but not exact. That's why some reweighting is needed. Ou
 - - - -
 <br>
 ## Input
-So how does a configuration and therefore input to our network look like? For our dimer example, we have n <sub>s</sub>
-= 36 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
+So how does a configuration and therefore input to our network look like? For our dimer example, we have \\( n_s = 36 \\)
+solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
 <div align="center">
     <a name="ImageInput">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="350" title="hover text">
     </a>
 </div>
+<br>
 With this input vector we can compute the energy of the system as follows:
 <div align="center">
     <a name="ImageEquations">
@@ -118,11 +123,8 @@ With this input vector we can compute the energy of the system as follows:
     </a>
 </div>
 
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 
-Where \\( d = \lVert x_1 - x_2 \rVert \\)
+Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particle, h the step function.
 The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
 The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
 on the edges of our system (x and y direction). And the last row describes the interaction therefore repulsion of the other
