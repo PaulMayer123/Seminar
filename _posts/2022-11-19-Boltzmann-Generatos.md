@@ -129,7 +129,7 @@ With this input vector we can compute the energy of the system as follows:
     &+ \frac{1}{4} a (d -d_0)^4 - \frac{1}{2} b (d - d_0)^2 + c(d - d_0)^4 \\
     &+ \sum_{i=1}^{n+2} h(-x_{ix} - l_{box})k_{box}(-x_{ix} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{ix} - l_{box})k_{box}(x_{ix} - l_{box})^2 \\
     &+ \sum_{i=1}^{n+2} h(-x_{iy} - l_{box})k_{box}(-x_{iy} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{iy} - l_{box})k_{box}(x_{iy} - l_{box})^2 \\
-    &+ \epsilon \sum_{i=1}^{n+1} \sum_{j=i+1,j \neq 2}^{n+2} (\frac{\sigma}{ \lVert x_i - x_j \rVert })^{12}  
+    &+ \epsilon \sum_{i=1}^{n+1} \sum_{j=i+1,j \neq 2}^{n+2} (\frac{\sigma}{ \lVert x_i - x_j \rVert })^{12} \\
     \end{align}
 \\]
  
@@ -147,7 +147,7 @@ on the edges of our system (x and y direction). And the last row describes the i
 particles. The parameters were chosen as shown in table 1. With this equation we can therefore compute the energy given
 a sample x and with the energy we can compute the corresponding boltzmann weight.
 
-\\[
+\[
 \begin{array}{|c|c|c|c|c|c|c|c|c|c|}
     \hline
     \text{Parameter} & \epsilon & \sigma & k_d & d_0 & a & b & c & l_{box} & k_{box} \\
@@ -155,7 +155,7 @@ a sample x and with the energy we can compute the corresponding boltzmann weight
     \text{Value} & 1.0< & 1.1 & 20.0 & 1.5 & 25.0 & 10.0 & -0.5 & 3.0 & 100.0 \\
     \hline
 \end{array}
-\\]
+\]
 
 
 \\[
