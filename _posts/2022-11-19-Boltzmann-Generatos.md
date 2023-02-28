@@ -118,8 +118,8 @@ With this input vector we can compute the energy of the system as follows:
     </a>
 </div>
 
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
 Where  $(ax^2 + bx + c = 0)$ 
