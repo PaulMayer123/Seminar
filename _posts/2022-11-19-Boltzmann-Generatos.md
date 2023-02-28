@@ -23,6 +23,7 @@ equilibrium states of many-body systems with deep learning</a>. I will focus mai
 to achieve this.
 - - - -
 <br>
+
 # Many-Body Problems
 Many-body problems are a category of physical problems. They are about microscopic systems made of many interacting 
 particles <!-- Quelle wiki -->. The underlying physical laws can be simple, but the resulting system as a whole is 
@@ -57,6 +58,7 @@ needed. Furthermore, the obtained samples are often correlated to each other.
 
 - - - -
 <br>
+
 # Boltzmann Generators
 How can we use machine learning to improve the sampling? As in the name of the paper, Boltzmann generators are used to 
 obtain independent, "one shot" samples. So that we no longer need small simulation steps.
