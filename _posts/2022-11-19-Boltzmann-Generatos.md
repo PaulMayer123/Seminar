@@ -124,12 +124,12 @@ With this input vector we can compute the energy of the system as follows:
 </div>
 
 
-Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particles, \\( k_d \\) the strength of the bond 
-between the dimer particles, a,b and c are coefficients that describe the energy curve for the dimer, \\( d_0 \\) the equilibrium
-distance between the dimer particles, \\( l_{box} \\) the length of the bounding box of the system, \\( k_{box} \\) the strength 
-of the bond between the particles and the bound of the box, \\( \epsilon \\) strength of the repulsion between particles,
-\\( \sigma \\) distance between two particles so that energy between them is zero and
-h the step function. The first row are the energy cost of moving the dimer particles in x and y direction.
+Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particles, \\( k_d \\) is the strength of the bond 
+between the dimer particles, a,b and c are coefficients that describe the energy curve for the dimer, \\( d_0 \\) is the equilibrium
+distance between the dimer particles, \\( l_{box} \\) is the length of the bounding box of the system, \\( k_{box} \\) is the strength 
+of the bond between the particles and the bound of the box, \\( \epsilon \\) is the strength of the repulsion between particles,
+\\( \sigma \\) is the distance between two particles where the energy between them is zero and
+h is the step function. The first row are the energy cost of moving the dimer particles in x and y direction.
 The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
 on the edges of our system (x and y direction). And the last row describes the interaction therefore repulsion of the other
 particles. The parameters were chosen as shown in table <a href="#table1">1</a>. With this equation we can therefore compute the energy given
