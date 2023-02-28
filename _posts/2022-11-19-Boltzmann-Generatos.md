@@ -1,6 +1,6 @@
 ---
 title: "Boltzmann-Generators"
-date: 2022-11-19
+date: 2023-02-28
 tags: "Paul Mayer"
 ---
 
@@ -8,7 +8,7 @@ tags: "Paul Mayer"
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-## What's the Problem?
+# What's the Problem?
 
 What is the probability that a protein will be folded at a given temperature? This and many more questions like this are
 part of statistical mechanics, where we try to describe the average behaviour of many copies of the same system. But how
@@ -59,7 +59,7 @@ needed. Furthermore, the obtained samples are often correlated to each other.
 - - - -
 <br>
 
-# Boltzmann Generators
+## Boltzmann Generators
 How can we use machine learning to improve the sampling? As in the name of the paper, Boltzmann generators are used to 
 obtain independent, "one shot" samples. So that we no longer need small simulation steps.
 
@@ -108,7 +108,7 @@ Boltzmann distribution, but not exact. That's why some reweighting is needed. Ou
 - - - -
 <br>
 
-## Input
+# Input
 So how does a configuration, and therefore input to our network look like? For our dimer example, we have \\( n_s = 36 \\)
 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
 <div align="center">
@@ -145,7 +145,7 @@ this equation for a given sample x. And then, with the energy, we can compute th
 </figure>
 
 
-## Invertible NN
+# Invertible NN
 Let's look at the smaller blocks that make up our network. These blocks are invertible and the Boltzmann generators use RealNVP transformations. It uses only trivial invertible
 operations, like addition and multiplication. In the image (figure <a href="#ImageInvertible">4</a>), the blue part is for the direction from the latent space to the 
 configuration space and the red part for the other direction (same in figure <a href="#ImageWhole">3</a>). First the input is split into 2 channels \\( (x_1, x_2) \\).
@@ -167,12 +167,13 @@ layers with 200 neurons.
 
 - - - -  
 <br>
+
 ## Training
 
 Why do we need invertible Blocks? There are two ways to train our network, so that we really get good, realistic samples.
 And each of it requires the other direction. The first mode is called "training by energy":
 
-### Training by energy
+# Training by energy
 1. Sample from Gaussian
 2. Transform through NN and generate a distribution p<sub>x</sub>
 
@@ -187,7 +188,7 @@ difference. We therefore use the Kullback-Leibler-Divergence which is derived fr
 two distributions. So we do not need samples from the configuration space for this training mode. But it tends to focus
 on the most meta-stable state. 
 
-### Training by example
+# Training by example
 
 1. Start with a valid configuration (from simulation or experiments)
 2. Transform through NN in other direction
@@ -244,7 +245,7 @@ need 2*10<sup>7</sup> energy evaluation in the training process. This is a signi
 In addition, the samples are independent and "one-shot". That means we can draw as many samples as we want without significant
 computations.
 
-## Transition Paths
+# Transition Paths
 What else can we do with the transformation? If we take our 2 meta-stable states, we can do a linear interpolation in the
 latent space. If we transform this path back to the configuration space, we obtain possible and realistic transition paths
 from one to the other. One of these paths can be seen in the next image (figure <a href="#transitionPath">8</a>).
@@ -260,7 +261,7 @@ from one to the other. One of these paths can be seen in the next image (figure 
 <!-- exploration -->
 
 
-# Conclusion #
+## Conclusion 
 We can use the Boltzmann generators for rare-event sampling problems in many-body systems. Furthermore, we obtain
 independent <b>one-shot</b> samples. And in the paper they show an example with a dense systems with more than 1000 dimension.
 But the approach is not ergodic, which means it does not cover the whole configuration space. Although
@@ -285,6 +286,7 @@ we can sample from a simple Gaussian distribution
 
 - - - -
 <br>
+
 # References
 - <a href="https://www.science.org/doi/10.1126/science.aaw1147" target="_blank" id="Boltzmann">[1]</a> F. Noé, S. Olsson, J. Köhler, H. Wu; Boltzmann generators: sampling equilibrium states of many-body systems with deep learning; Science, 365 (2019)
 - <a href="https://arxiv.org/abs/1605.08803" target="_blank" id="RealNvp">[2]</a> Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio. "Density estimation using real nvp." arXiv preprint arXiv:1605.08803 (2016)
