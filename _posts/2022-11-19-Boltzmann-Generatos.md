@@ -208,9 +208,9 @@ is also used and the whole network is trained for 2000 epochs.
 ## Reweigthing
 
 Because of our network, we never have exactly the boltzmann distribution. Therefore, we need a bit of reweighting. The third
-step of the boltzmann generators. Statistical mechanics offer many tools to generate the wanted distribution when p<sub>x
-</sub> is sufficiently similar.
-The easiest way is w(x)=e<sup>-u(x)</sup>/p<sub>x</sub>. Where e<sup>-u(x)</sup> is the boltzmann distribution that we can
+step of the boltzmann generators. Statistical mechanics offer many tools to generate the wanted distribution when  \\( p_x \\)
+is sufficiently similar.
+The easiest way is \\( w(x)= \frac{e^{-u(x)}}{p_x}. Where \\( e^{-u(x)} \\) is the boltzmann distribution that we can
 compute, because we know the energy of the sample. To compute our statistics we use these new weights. And the more equal the distributions are,
 the better and more accurate the statistics.
 
@@ -221,8 +221,13 @@ the better and more accurate the statistics.
 Let's look at the result for the system with the dimer. We recall that the dimer can be closed or open. And these states
 are separated by a high energy barrier to transition from one to the other. In the latent space, we obtain a 76 dimensional
 ball. When sampling from a 76 dimensional Gaussian and then transforming it with our (trained) network, we obtain samples,
- where no particles clash. The resulting configurations,One possible statistic is the free energy difference. In the following image we can see the black line that was
-obtained by classical sampling methods. The green points are samples generated with the boltzmann generators.
+ where no particles clash. One possible statistic is the free energy difference. Free energy difference can measure the
+thermodynamic stability between two states. It is the amount of energy required to transition from one to the other and 
+thus describing the likelihood of a transition. In our case the difference is measured to the state with the lowest energy
+(closed state). In the following image (figure <a href="#FreeEnergy">7</a>) this difference is plotted against the distance
+of the dimer particles. The black line was
+obtained by classical sampling methods. The green points are samples generated with the boltzmann generators, which are 
+very close to the black line. The intervals around some green points are the standard errors from 10 independent repeats.
 
 <figure align="center">
     <div name="FreeEnergy">
