@@ -75,7 +75,7 @@ example that shows the principle better:
 
 <figure align="center">
     <div id="ImageRealNvp">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Transform-RealNVP.png" width="750" title="Transformation">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Transform-RealNVP.png" width="650" title="Transformation">
         <figcaption>Fig.2 Transformation -  Dinh, Laurent, Jascha Sohl-Dickstein, and Samy Bengio (2016) <a href="#RealNvp">[2]</a></figcaption>
     </div>
 </figure>
