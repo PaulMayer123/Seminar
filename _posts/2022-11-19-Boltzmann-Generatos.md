@@ -131,7 +131,7 @@ of the bond between the particles and the bound of the box, \\( \epsilon \\) is 
 \\( \sigma \\) is the distance between two particles where the energy between them is zero and
 h is the step function. The first row are the energy cost of moving the dimer particles in x and y direction.
 The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
-on the edges of our system (x and y direction). And the last row describes the interaction therefore repulsion of the other
+on the edges of our system (x and y direction). And the last row describes the interaction, and therefore repulsion of the other
 particles. The parameters were chosen as shown in table <a href="#table1">1</a>. Therefore, we can compute the energy with 
 this equation, given
 a sample x and then with the energy we can compute the corresponding boltzmann weight.
