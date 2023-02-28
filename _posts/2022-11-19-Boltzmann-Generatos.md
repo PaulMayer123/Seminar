@@ -212,7 +212,7 @@ is also used and the whole network is trained for 2000 epochs.
 Because of our network, we never have exactly the boltzmann distribution. Therefore, we need a bit of reweighting. The third
 step of the boltzmann generators. Statistical mechanics offer many tools to generate the wanted distribution when  \\( p_x \\)
 is sufficiently similar.
-The easiest way is \\( w(x)= \frac{e^{-u(x)}}{p_x}. Where \\( e^{-u(x)} \\) is the boltzmann distribution that we can
+The easiest way is \\( w(x)= \frac{e^{-u(x)}}{p_x} \\). Where \\( e^{-u(x)} \\) is the boltzmann distribution that we can
 compute, because we know the energy of the sample. To compute our statistics we use these new weights. And the more equal the distributions are,
 the better and more accurate the statistics.
 
