@@ -3,7 +3,7 @@ title: "Boltzmann-Generators"
 date: 2022-11-19
 tags: "Paul Mayer"
 ---
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
 ## What's the Problem?
 
 What is the probability that a protein will be folded at a given temperature? This and many more questions like this are
@@ -117,6 +117,10 @@ With this input vector we can compute the energy of the system as follows:
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="600" title="hover text">
     </a>
 </p>
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 Where  $(ax^2 + bx + c = 0)$
 The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
