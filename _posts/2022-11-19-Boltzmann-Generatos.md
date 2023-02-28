@@ -123,17 +123,60 @@ With this input vector we can compute the energy of the system as follows:
     </a>
 </div>
 
-Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particles, h the step function. The other parameters
 
-\\[ U(x) = k_d(x_{1x} + x_{2x})^2 + k_dx_{1y}^2 + k_dx_{2y}^2 + \frac{1}{4} a (d -d_0)^4 - \frac{1}{2} b (d - d_0)^2 + c(d - d_0)^4 + \sum_{i=1}^{n+2} h(-x_{ix} - l_{box})k_{box}(-x_{ix} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{ix} - l_{box})k_{box}(x_{ix} - l_{box})^2 + \sum_{i=1}^{n+2} h(-x_{iy} - l_{box})k_{box}(-x_{iy} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{iy} - l_{box})k_{box}(x_{iy} - l_{box})^2 + \epsilon \sum_{i=1}^{n+1} \sum_{j=i+1,j \neq 2}^{n+2} (\frac{\sigma}{ \lVert x_i - x_j \rVert })^{12}  \\]
-
+\\[ \begin{align}
+    U(x) &= k_d(x_{1x} + x_{2x})^2 + k_dx_{1y}^2 + k_dx_{2y}^2 
+    &+ \frac{1}{4} a (d -d_0)^4 - \frac{1}{2} b (d - d_0)^2 + c(d - d_0)^4 
+    &+ \sum_{i=1}^{n+2} h(-x_{ix} - l_{box})k_{box}(-x_{ix} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{ix} - l_{box})k_{box}(x_{ix} - l_{box})^2 
+    &+ \sum_{i=1}^{n+2} h(-x_{iy} - l_{box})k_{box}(-x_{iy} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{iy} - l_{box})k_{box}(x_{iy} - l_{box})^2 
+    &+ \epsilon \sum_{i=1}^{n+1} \sum_{j=i+1,j \neq 2}^{n+2} (\frac{\sigma}{ \lVert x_i - x_j \rVert })^{12}  
+    \end{align}
+\\]
+ 
 \\[
 x = [x_{1x}, x_{1y}, x_{2x}, x_{2y}, \dots, x_{(n_s+2)x}, x_{(n_s+2)y}]
 \\]
-The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
+Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particles, \\( k_d \\) the strength of the bond 
+between the dimer particles, a,b and c are coefficients that describe the energy curve for the dimer, \\( d_0 \\) the equilibrium
+distance between the dimer particles, \\( l_box \\) the length of the bounding box of the system, \\( k_{box} \\) the strength 
+of the bond between the particles and the bound of the box, \\( \epsilon \\) strength of the repulsion between particles,
+\\( \sigma \\) distance between two particles so that energy between them is zero and
+h the step function. The first row are the energy cost of moving the dimer particles in x and y direction.
 The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
 on the edges of our system (x and y direction). And the last row describes the interaction therefore repulsion of the other
-particles
+particles. The parameters were chosen as shown in table 1. With this equation we can therefore compute the energy given
+a sample x and with the energy we can compute the corresponding boltzmann weight.
+
+<div name="Table">
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>\\( \epsilon \\)</th>
+            <th>\\( \sigma \\)</th>
+            <th>\\( k_d \\)</th>
+            <th>\\( d_0 \\)</th>
+            <th>a</th>
+            <th>b</th>
+            <th>c</th>
+            <th>\\( l_box \\)</th>
+            <th>\\( k_{box} \\)</th>
+        </tr>
+        <tr>
+            <th>Value</th>
+            <td>1.0</td>
+            <td>1.1</td>
+            <td>20.0</td>
+            <td>1.5</td>
+            <td>25.0</td>
+            <td>10.0</td>
+            <td>-0.5</td>
+            <td>3.0</td>
+            <td>100.0</td>
+        </tr>
+    </table>        
+
+        <figcaption>Table 1 Parameters - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
+</div>
 
 ## Invertible NN
 Let's look at the smaller blocks that make up our network. These blocks are invertible and the boltzmann generators use RealNVP transformations. It uses only trivial invertible
