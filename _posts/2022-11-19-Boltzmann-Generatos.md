@@ -33,9 +33,7 @@ particles. The equations of motion don't have just one solution, therefore we ar
 states. Often the most interesting states are rare-events, like the transition of a protein from folded to unfolded or vice
 versa. One example that we take a closer look at throughout this blog, is an open or closed dimer. This condensed matter
 system consists of 36 molecules. The focus lies on the two colored particles in figure <a href="#ImageDenseSystem">1</a>. These can be in two
-main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event. Additionally,
-a possible interesting statistic is the probability that the dimer is closed or open. 
-
+main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event.
 <figure align="center">
     <div id="ImageDenseSystem">
         <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
