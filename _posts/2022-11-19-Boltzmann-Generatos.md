@@ -4,6 +4,8 @@ date: 2022-11-19
 tags: "Paul Mayer"
 ---
 
+## What's the Problem?
+
 What is the probability that a protein will be folded at a given temperature? This and many more questions like this are
 part of statistical mechanics, where we try to describe the average behaviour of many copies of the same system. But how
 can we compute such probabilities? Simply look at all possible configurations of all folded and unfolded proteins? Sadly,
@@ -116,6 +118,14 @@ With this input vector we can compute the energy of the system as follows:
     </a>
 </p>
 
+Where <math><mrow>
+  <mi>a</mi>
+  <mo>+</mo>
+  <mi>b</mi>
+</mrow>
+<msup>
+  <mn>2</mn>
+</msup></math>
 The details are not that important, but the first row are constraints for the center and y-position of the particle dimer.
 The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
 on the edges of our system (x and y direction). And the last row describes the interaction therefore repulsion of the other
