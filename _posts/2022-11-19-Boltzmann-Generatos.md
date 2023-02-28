@@ -125,13 +125,7 @@ With this input vector we can compute the energy of the system as follows:
 
 Where \\( d = \lVert x_1 - x_2 \rVert \\) is the distance between the dimer particles, h the step function. The other parameters
 
-\\[
- U(x) = k_d(x_{1x} + x_{2x})^2 + k_dx_{1y}^2 + k_dx_{2y}^2
- + \frac{1}{4} a (d -d_0)^4 - \frac{1}{2} b (d - d_0)^2 + c(d - d_0)^4
- + \sum_{i=1}^{n+2} h(-x_{ix} - l_{box})k_{box}(-x_{ix} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{ix} - l_{box})k_{box}(x_{ix} - l_{box})^2
- + \sum_{i=1}^{n+2} h(-x_{iy} - l_{box})k_{box}(-x_{iy} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{iy} - l_{box})k_{box}(x_{iy} - l_{box})^2
- + \epsilon \sum_{i=1}^{n+1} \sum_{j=i+1,j \neq 2}^{n+2} (\frac{\sigma}{ \lVert x_i - x_j \rVert })^{12}
-\\]
+\\[ U(x) = k_d(x_{1x} + x_{2x})^2 + k_dx_{1y}^2 + k_dx_{2y}^2 + \frac{1}{4} a (d -d_0)^4 - \frac{1}{2} b (d - d_0)^2 + c(d - d_0)^4 + \sum_{i=1}^{n+2} h(-x_{ix} - l_{box})k_{box}(-x_{ix} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{ix} - l_{box})k_{box}(x_{ix} - l_{box})^2 + \sum_{i=1}^{n+2} h(-x_{iy} - l_{box})k_{box}(-x_{iy} - l_{box})^2 + \sum_{i=1}^{n+2} h(x_{iy} - l_{box})k_{box}(x_{iy} - l_{box})^2 + \epsilon \sum_{i=1}^{n+1} \sum_{j=i+1,j \neq 2}^{n+2} (\frac{\sigma}{ \lVert x_i - x_j \rVert })^{12}  \\]
 
 \\[
 x = [x_{1x}, x_{1y}, x_{2x}, x_{2y}, \dots, x_{(n_s+2)x}, x_{(n_s+2)y}]
