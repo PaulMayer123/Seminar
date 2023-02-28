@@ -163,7 +163,7 @@ a sample x and with the energy we can compute the corresponding boltzmann weight
             <th> \\( \epsilon \\) </th>
             <th><math>\sigma</math></th>
             <th><math> k_d </math></th>
-            <th><math> d <msub>0</msub> </math></th>
+            <th><math><mr> d <msub>0</msub> </mr></math></th>
             <th>a</th>
             <th>b</th>
             <th>c</th>
