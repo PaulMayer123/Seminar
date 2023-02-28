@@ -138,7 +138,7 @@ a sample x and with the energy we can compute the corresponding boltzmann weight
 
 <figure align="center">
     <div name="table1">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/table1.png" width="350" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/table1.png" width="600" title="hover text">
         <figcaption>Table 1 Parameters - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
