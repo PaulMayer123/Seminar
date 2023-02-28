@@ -36,8 +36,8 @@ system consists of 36 molecules. The focus lies on the two colored particles in 
 main states: closed (left) or open (right). The transition from one to the other is a rare but interesting event.
 <figure align="center">
     <div id="ImageDenseSystem">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="hover text">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="252.25" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-closed.png" width="250" title="closed dimer">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-open.png" width="252.25" title="open dimer">
         <figcaption>Fig.1 Repulsive particle system with bistable dimer. Closed (blue, left), Open (red, right)  - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
@@ -58,8 +58,8 @@ needed. Furthermore, the obtained samples are often correlated to each other.
 - - - -
 <br>
 # Boltzmann Generators
-How can we use machine learning to improve the sampling? As in the name of the paper Boltzmann generators are used to 
-obtain independent, "one shot" samples. So we no longer need small simulation steps.
+How can we use machine learning to improve the sampling? As in the name of the paper, Boltzmann generators are used to 
+obtain independent, "one shot" samples. So that we no longer need small simulation steps.
 
 First let's take a look at what we can do. In our example we have all the positions and forces, for a given sample,
 between our molecules. We can therefore compute the energy of the system. With this energy we can calculate the Boltzmann
@@ -68,9 +68,9 @@ sampling. <!-- HIer input? -->
 
 So how do these Boltzmann generators work? The key idea is a coordinate transformation. From the configuration space X
 (as seen before: the positions and forces of the molecules) to a so-called latent space Z. There different states are 
-close to each other. And in such a way, that we can sample from there with a gaussian. 
+close to each other. And in such a way, that we can sample from there with a Gaussian. 
 
-Since in our example this results in a 76 dimensional gaussian(which is difficult to visualize). Let's look at a simpler
+Since in our example this results in a 76 dimensional Gaussian(which is difficult to visualize). Let's look at a simpler
 example that shows the principle better:
 
 <figure align="center">
@@ -80,26 +80,26 @@ example that shows the principle better:
     </div>
 </figure>
 
-The left part(blue) shows the configuration space of our data. After the transform we have the samples repacked in a gaussian 
-like shape (right blue part). The bends and stretches of the gray lines illustrate well the transformation. The key part 
+In figure <a href="#ImageRealNvp">2</a>, the left part (blue) shows the configuration space of our data. After the transform we have the samples repacked in a Gaussian 
+like shape (right, blue part). The bends and stretches of the gray lines illustrate well the transformation. Another key part 
 is that the transformation is invertible. That means we can also transform in the other direction. So if we have
-samples in the latent space(red right part) we can transform them into our configuration space and get something similar
-to our data back. In our case we want to draw a sample in the latent space from a gaussian and then transform the sample
+samples in the latent space (red, right part) we can transform them into our configuration space and get something similar
+to our data back. In our case we want to draw a sample in the latent space from a Gaussian and then transform the sample
 to our configuration space to obtain a sample for our original problem. 
 
-We do this via a deep invertible neural network. As illustrated in the next image:
+We do this via a deep invertible neural network. As illustrated in the next image (figure <a href="#ImageWhole">3</a>):
 1. Sample from Gaussian
-2. Transform via Neural Network
+2. Transform via neural network
 3. Reweight
 
 <figure align="center">
     <div id="ImageWhole">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Boltzmann-with-Reweight.png" width="350" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Boltzmann-with-Reweight.png" width="350" title="Boltzmann Generators">
         <figcaption>Fig.3 Boltzmann Generators - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
 
-We start by drawing a sample from a gaussian distribution. Then we transform it through our Network and therefore get a
+We start by drawing a sample from a Gaussian distribution. Then we transform it through our Network and therefore get a
 sample in our configuration space. We thus generate a distribution p<sub>x</sub>. This distribution is similar to the 
 Boltzmann distribution, but not exact. That's why some reweighting is needed. Our Network consists out of smaller blocks.
 
@@ -110,14 +110,14 @@ So how does a configuration, and therefore input to our network look like? For o
 solvent particles and the two dimer molecules. The input vector is simply the alternating x and y position of each particle:
 <div align="center">
     <a id="ImageInput">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="350" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/input-vector.png" width="350">
     </a>
 </div>
 <br>
 With this input vector we can compute the energy of the system as follows:
 <div align="center">
     <a id="ImageEquations">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="600" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/energy-equation.png" width="600">
     </a>
 </div>
 
@@ -131,13 +131,12 @@ h is the step function. The first row are the energy cost of moving the dimer pa
 The second row describes the interaction between the dimer molecules. The third and fourth line is for the box constraints
 on the edges of our system (x and y direction). And the last row describes the interaction, and therefore repulsion of the other
 particles. The parameters were chosen as shown in table <a href="#table1">1</a>. Therefore, we can compute the energy with 
-this equation, given
-a sample x and then with the energy we can compute the corresponding Boltzmann weight.
+this equation for a given sample x. And then, with the energy, we can compute the corresponding Boltzmann weight.
 <br>
 
 <figure align="center">
     <div id="table1">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/table1.png" width="600" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/table1.png" width="600">
         <figcaption>Table 1 Parameters - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
@@ -145,20 +144,20 @@ a sample x and then with the energy we can compute the corresponding Boltzmann w
 
 ## Invertible NN
 Let's look at the smaller blocks that make up our network. These blocks are invertible and the Boltzmann generators use RealNVP transformations. It uses only trivial invertible
-operations, like addition and multiplication. In the image, the blue part is for the direction from the latent space to the 
-configuration space and the red part for the other direction. First the input is split into 2 channels \\( (x_1, x_2) \\).
+operations, like addition and multiplication. In the image (figure <a href="#ImageInvertible">4</a>), the blue part is for the direction from the latent space to the 
+configuration space and the red part for the other direction (same in figure <a href="#ImageWhole">3</a>). First the input is split into 2 channels \\( (x_1, x_2) \\).
 One channel remains unchanged and is only used as input to change the second input. S and T are two
 <b>non</b>-invertible networks. We use the first channel as input of these networks and then multiply or add it to the 
-second channel. Even though the two Networks are not invertible, we know their input and therefore can recompute it and 
+second channel. Even though the two networks are not invertible, we know their input and therefore can recompute it and 
 then divide or subtract it from the second channel to get our original inputs back. Note that we use the same network 
 both directions. In order to avoid that we only change one half of the input we swap the channel that gets modified every other layer.
-A block consist of 2 layers one modification of each channel. We can stack those blocks to obtain a deep neural network.
+A block ( \\( f_1 and f_1^{-1} in figure <a href="#ImageWhole">3</a> \\) ) consist of 2 layers one modification of each channel. We can stack those blocks to obtain a deep neural network.
 For our running example 8 blocks (with 2 layers each) were used. Furthermore, the networks S and T consist of 3 hidden
 layers with 200 neurons.
 <br>
 <figure align="center">
     <div id="ImageInvertible">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/invertible2.png" width="450" title="Real NVP Block">
         <figcaption>Fig.4 Real NVP Transformation Block </figcaption>
     </div>
 </figure>
@@ -168,15 +167,15 @@ layers with 200 neurons.
 ## Training
 
 Why do we need invertible Blocks? There are two ways to train our network, so that we really get good, realistic samples.
-And each of it requires the other direction. The first mode is called training-by-energy:
+And each of it requires the other direction. The first mode is called "training by energy":
 
 ### Training by energy
-1. Sample from gaussian
+1. Sample from Gaussian
 2. Transform through NN and generate a distribution p<sub>x</sub>
 
 <figure align="center">
     <div id="ImageTrainByEnergy">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="400" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-energy.gif" width="400" title="Training by Energy">
         <figcaption>Fig.5 Training by Energy - adapted from: F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
@@ -192,16 +191,16 @@ on the most meta-stable state.
 
 <figure align="center">
     <div id="ImageTrainByExample">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="400" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Train-by-example.gif" width="400" title="Training by Example">
         <figcaption>Fig.6 Training by Example - adapted from: F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
-This mode is as we all know we start with valid configuration. We use our transformation in the other direction.
-Training by example is especially good in the early stages, but requires configurations.
+This mode is as we all know training: We start with a valid configuration. This time, we use our transformation in the other direction.
+"Training by example" is especially good in the early stages, but requires configurations (from experiments or simulations).
 <b>So the best way is to combine both methods together.</b>
-For the dimer example, we start with only 'training by example' for the first 20 epochs with 10<sup>5</sup>
+For the dimer example, we start with only "training by example" for the first 20 epochs with 10<sup>5</sup>
 simulation steps for the open and closed
-dimer states, but without transitions between these states occurring in the simulations. After that the 'training by energy'
+dimer states, but without transitions between these states occurring in the simulations. After that the "training by energy" mode
 is also used and the whole network is trained for 2000 epochs.
 
 
@@ -221,7 +220,7 @@ the better and more accurate the statistics.
 Let's look at the result for the system with the dimer. We recall that the dimer can be closed or open. And these states
 are separated by a high energy barrier to transition from one to the other. In the latent space, we obtain a 76 dimensional
 ball. When sampling from a 76 dimensional Gaussian and then transforming it with our (trained) network, we obtain samples,
- where no particles clash. One possible statistic is the free energy difference. Free energy difference can measure the
+ where no particles clash. With these samples we can compute statistic of this system. One possible statistic is the free energy difference. Free energy difference can measure the
 thermodynamic stability between two states. It is the amount of energy required to transition from one to the other and 
 thus describing the likelihood of a transition. In our case the difference is measured to the state with the lowest energy
 (closed state). In the following image (figure <a href="#FreeEnergy">7</a>) this difference is plotted against the distance
@@ -231,7 +230,7 @@ very close to the black line. The intervals around some green points are the sta
 
 <figure align="center">
     <div id="FreeEnergy">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-FreeEnergyDiff.png" width="350" title="hover text">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/Dense-FreeEnergyDiff.png" width="350" title="Free Energy Difference">
         <figcaption>Fig.7 Free Energy Difference - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
@@ -245,13 +244,13 @@ computations.
 ## Transition Paths
 What else can we do with the transformation? If we take our 2 meta-stable states, we can do a linear interpolation in the
 latent space. If we transform this path back to the configuration space, we obtain possible and realistic transition paths
-from one to the other. One of these paths can be seen in the next image.
+from one to the other. One of these paths can be seen in the next image (figure <a href="#transitionPath">8</a>).
 
 
 <figure align="center">
     <div  id="transitionPath">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transition-paths.png" width="400" title="hover text">
-        <figcaption>Fig.8 Transition Path - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/transition-paths.png" width="400" title="Transition Path">
+        <figcaption>Fig.8 Possible Transition Path - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
 
@@ -278,7 +277,7 @@ therefore need to sample
 be correlated
 - <b>Boltzmann generators</b> are a new approach that uses machine learning to obtain independent "one-shot" samples
 - The key idea is a <b>coordinate transformation</b> to a latent space, where different states are close to each other so that
-we can sample from a simple gaussian distribution
+we can sample from a simple Gaussian distribution
 - These samples can then be transformed back to the configuration space to obtain valid samples for the system
 
 - - - -
