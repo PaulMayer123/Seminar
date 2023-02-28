@@ -179,6 +179,16 @@ a sample x and with the energy we can compute the corresponding boltzmann weight
 </div>
 \\]
 
+\\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|
+    \hline
+    \text{Parameter} & \epsilon & \sigma & k_d & d_0 & a & b & c & l_{box} & k_{box} \\
+    \hline
+    \text{Value} & 1.0< & 1.1 & 20.0 & 1.5 & 25.0 & 10.0 & -0.5 & 3.0 & 100.0 \\
+    \hline
+\end{array}
+\\]
+
 ## Invertible NN
 Let's look at the smaller blocks that make up our network. These blocks are invertible and the boltzmann generators use RealNVP transformations. It uses only trivial invertible
 operations, like addition and multiplication. In the image, the blue part is for the direction from the latent space to the 
