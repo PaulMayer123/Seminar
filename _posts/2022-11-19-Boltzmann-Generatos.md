@@ -70,7 +70,7 @@ So how do these Boltzmann generators work? The key idea is a coordinate transfor
 (as seen before: the positions and forces of the molecules) to a so-called latent space Z. There different states are 
 close to each other. And in such a way, that we can sample from there with a Gaussian. 
 
-Since in our example this results in a 76 dimensional Gaussian(which is difficult to visualize). Let's look at a simpler
+Since in our example this results in a 76 dimensional Gaussian (which is difficult to visualize). Let's look at a simpler
 example that shows the principle better:
 
 <figure align="center">
