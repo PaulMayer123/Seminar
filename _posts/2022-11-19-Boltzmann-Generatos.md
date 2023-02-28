@@ -44,7 +44,7 @@ main states: closed (left) or open (right). The transition from one to the other
 <br>
 # Boltzmann Distribution <!-- Nochmal motivieren warum wir hiervon samplen wollen(was beschreibt sie,...) -->
 The Boltzmann distribution often appears in such problems. It takes into account the energy and temperature of the system.
-The less energy of a state, the higher its probability is. In our example, the system has the lowest energy, when the 
+The less energy a state has, the higher its probability is. In our example, the system has the lowest energy, when the 
 dimer is closed or open. To transition from one to the other a high energy barrier must be overcome and therefore these
 events are quite rare. If we have a given configuration of our system, we can compute the energy and thus can compute the
 corresponding Boltzmann weight. <!-- Hier Beispiel U(x) angeben?? oder alles zusammen später -->
