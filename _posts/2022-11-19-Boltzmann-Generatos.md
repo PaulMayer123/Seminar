@@ -220,7 +220,8 @@ the better and more accurate the statistics.
 ## Results
 Let's look at the result for the system with the dimer. We recall that the dimer can be closed or open. And these states
 are separated by a high energy barrier to transition from one to the other. In the latent space, we obtain a 76 dimensional
-gaussian. One possible statistic is the free energy difference. In the following image we can see the black line that was
+ball. When sampling from a 76 dimensional Gaussian and then transforming it with our (trained) network, we obtain samples,
+ where no particles clash. The resulting configurations,One possible statistic is the free energy difference. In the following image we can see the black line that was
 obtained by classical sampling methods. The green points are samples generated with the boltzmann generators.
 
 <figure align="center">
