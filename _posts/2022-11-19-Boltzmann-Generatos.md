@@ -149,7 +149,7 @@ a sample x and with the energy we can compute the corresponding boltzmann weight
 
 \\[
 \begin{array}{|c|c|c|c|c|c|c|c|c|c|}
-    \text{Parameter} & \epsilon & \sigma & k_d & d_0 & a & b & c & l_{box} & k_{box} \\
+    \text{Parameter} & \epsilon & \sigma & k_d & d_0 & a & b & c & l_{box} & k_{box} <br>
     \text{Value} & 1.0< & 1.1 & 20.0 & 1.5 & 25.0 & 10.0 & -0.5 & 3.0 & 100.0 \\
 \end{array}
 \\]
