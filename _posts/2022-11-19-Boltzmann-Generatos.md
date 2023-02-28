@@ -137,7 +137,7 @@ this equation for a given sample x. And then, with the energy, we can compute th
 
 <figure align="center">
     <div id="table1">
-        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/table1.png" width="600">
+        <img src="https://raw.githubusercontent.com/PaulMayer123/seminar/main/table1.png" width="500">
         <figcaption>Table 1 Parameters - F. Noé, S. Olsson, J. Köhler, H. Wu. (2019) <a href="#Boltzmann">[1]</a></figcaption>
     </div>
 </figure>
